@@ -85,7 +85,7 @@
     "easystarjs": "^0.4.4",
     "esm": "^3.2.25",
     "observable-slim": "^0.1.6",
-    "phaser": "^3.55.2",
+    "phaser": "^3.80.1",
     "rxjs": "^7.5.7",
     "siema": "^1.5.1",
     "ts-loader": "^9.2.7",
