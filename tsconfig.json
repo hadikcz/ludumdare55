@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths" : {
+      "*": ["./src/*"]
+    },
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es6",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "noImplicitAny": false,
+    "strictFunctionTypes": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "skipLibCheck": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./dist",
+    "./assets",
+    "./raw_assets"
+  ],
+  "typeRoots": [
+    "@types",
+    "node_modules/@types",
+    "node_module/phaser/types",
+    "./@types"
+  ]
+}

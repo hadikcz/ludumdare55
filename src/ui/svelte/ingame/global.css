@@ -1,0 +1,42 @@
+html,
+body {
+    color: #FFF;
+    /*background: #5c7a56;*/
+    background: #00ff2a !important;
+    /*background: #b600ff;*/
+    /*background: #ff0;*/
+    word-spacing: 9px;
+    /*background: #767474;*/
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    image-rendering: optimizeQuality;
+    /*image-rendering: optimizeSpeed;*/
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -o-crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+    font-family: 'LilitaOne-Regular', Arial;
+
+    image-rendering: -moz-crisp-edges;
+    /* Disable selection after double click */
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+    -moz-transform-origin: 0 0;
+    /**/
+    /*image-rendering: -moz-crisp-edges;*/
+    /*-ms-interpolation-mode: bicubic;*/
+}
+* {
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+    touch-action: manipulation;
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    /*image-rendering: -moz-crisp-edges;*/
+    /*-ms-interpolation-mode: bicubic;*/
+}

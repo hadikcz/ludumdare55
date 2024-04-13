@@ -1,0 +1,8 @@
+build
+dist
+test
+webpack*
+assets
+*d.ts
+src/types/spine.d.ts
+raw_assets
