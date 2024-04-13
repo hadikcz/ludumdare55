@@ -2,7 +2,7 @@ import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
 import EffectManager from 'effects/EffectManager';
-import Player from 'entities/Player';
+import Player from 'entities/player/Player';
 import $ from 'jquery';
 import Phaser from 'phaser';
 import { Subject } from 'rxjs';
@@ -51,7 +51,8 @@ export default class GameScene extends Phaser.Scene {
             this,
             150,
             150,
-            this.tunnelLayer
+            this.tunnelLayer,
+            this.worldEnv
         );
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.1);

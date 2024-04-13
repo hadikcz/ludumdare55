@@ -1,4 +1,6 @@
 import TunnelLayer from 'core/tunnels/TunnelLayer';
+import WorldEnv from 'core/WorldEnv';
+import PlayerShooting from 'entities/player/PlayerShooting';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
@@ -12,16 +14,20 @@ export default class Player extends Phaser.GameObjects.Container {
     private barel: Phaser.GameObjects.Sprite;
     private cursors: any;
     private reverseHeading: boolean = false;
+    private playerShooting: PlayerShooting;
 
     constructor (
         scene: GameScene,
         x: number,
         y: number,
-        private readonly tunnelLayer: TunnelLayer
+        private readonly tunnelLayer: TunnelLayer,
+        private readonly worldEnv: WorldEnv
     ) {
         super(scene, x, y, []);
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
+
+        this.playerShooting = new PlayerShooting(scene, this.worldEnv);
 
         const scaleOfSprite = .3;
         this.sprite = this.scene.add.sprite(0, 0, 'assets', 'Tanks/tankGreen')
@@ -99,6 +105,10 @@ export default class Player extends Phaser.GameObjects.Container {
             Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(angle, -this.getSpeed() * delta, body.velocity);
         } else {
             body.setVelocity(0);
+        }
+
+        if (pointer.isDown) {
+            this.playerShooting.shoot(this.x, this.y, this.rotation);
         }
 
         this.rotation = angle;

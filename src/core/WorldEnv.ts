@@ -5,6 +5,7 @@ import { Depths } from 'enums/Depths';
 export default class WorldEnv {
 
     private rocks: Group = this.scene.add.group();
+    public bullets: Group = this.scene.add.group();
 
     constructor (
         private readonly scene: GameScene
