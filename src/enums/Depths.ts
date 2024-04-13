@@ -1,7 +1,8 @@
 export enum Depths {
     POND_WATER,
     BG_TEXTURE,
-    PLAYERE,
+    PLAYER,
+    ROCKS,
     FLY_TEXT,
     UI,
 }

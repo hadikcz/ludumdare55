@@ -39,14 +39,15 @@ export default class WorldEnv {
 
     private generateRandomRocks (): void {
         this.rocks = this.scene.add.group();
-        for (let i = 0; i < 10; i++) {
+
+        for (let i = 0; i < 100; i++) {
             const rock = this.scene.add.image(
-                // random X from scene world size
                 this.scene.physics.world.bounds.width * Math.random(),
                 this.scene.physics.world.bounds.height * Math.random(),
                 'assets',
                 'Smoke/smokeGrey5'
-            );
+            )
+                .setDepth(Depths.ROCKS);
             this.rocks.add(rock);
         }
     }

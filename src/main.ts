@@ -7,9 +7,9 @@ import GameScene from 'scenes/GameScene';
 declare let __DEV__: any;
 const config = {
     type: Phaser.AUTO,
-    pixelArt: true,
-    roundPixels: true,
-    autoRound: true,
+    pixelArt: false,
+    roundPixels: false,
+    autoRound: false,
     parent: 'content',
     width: GameConfig.PhaserBasicSettings.gameSize.width,
     height: GameConfig.PhaserBasicSettings.gameSize.height,
@@ -19,6 +19,7 @@ const config = {
         forceSetTimeOut: true
     },
     physics: {
+        fixedStep: true,
         fps: 60,
         default: 'arcade',
         arcade: {

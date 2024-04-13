@@ -44,7 +44,7 @@ export default class GameScene extends Phaser.Scene {
         this.effectManager = new EffectManager(this);
 
         this.player = new Player(this, 500, 500);
-        this.cameras.main.startFollow(this.player, true);
+        this.cameras.main.startFollow(this.player, false, 0.1, 0.1);
 
         this.ui = new UI(this);
     }

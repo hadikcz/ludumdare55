@@ -41,7 +41,7 @@ export default class Player extends Phaser.GameObjects.Container {
 
         this.setAngle(-90);
 
-        this.setDepth(Depths.PLAYERE);
+        this.setDepth(Depths.PLAYER);
 
     }
 
