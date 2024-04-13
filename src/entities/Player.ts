@@ -10,6 +10,7 @@ export default class Player extends Phaser.GameObjects.Container {
     private sprite: Phaser.GameObjects.Sprite;
     private barel: Phaser.GameObjects.Sprite;
     private cursors: any;
+    private reverseHeading: boolean = false;
 
     constructor (
         scene: GameScene,
@@ -70,11 +71,23 @@ export default class Player extends Phaser.GameObjects.Container {
             this.angle += Player.ANGLE_SPEED;
         }
         if (this.cursors.up.isDown) {
-            Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(this.rotation, Player.SPEED * delta, body.velocity);
+            this.reverseHeading = false;
+            Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(this.rotation, this.getSpeed() * delta, body.velocity);
         } else if (this.cursors.down.isDown) {
-            Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(this.rotation, -Player.SPEED * delta, body.velocity);
+            this.reverseHeading = true;
+            Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(this.rotation, -this.getSpeed() * delta, body.velocity);
         } else {
+            this.reverseHeading = false;
             body.setVelocity(0);
         }
+    }
+
+    private getSpeed (): number {
+        const isInTunnel = this.tunnelLayer.isInTheTunnel(
+            this.x,
+            this.y,
+            this.rotation + (this.reverseHeading ? Math.PI : 0)
+        );
+        return isInTunnel ? Player.SPEED : Player.SPEED / 3;
     }
 }
