@@ -33,7 +33,7 @@ export default class TunnelLayer {
         this.rt.draw(this.circle, x, y);
     }
 
-    isInTheTunnel (x: number, y: number, angle: number = 0, distance: number = 25, circleDetectionSize: number = 8): boolean {
+    isInTheTunnel (x: number, y: number, angle: number = 0, distance: number = 15, circleDetectionSize: number = 8): boolean {
         try {
             x = Math.floor(x);
             y = Math.floor(y);
