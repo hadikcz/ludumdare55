@@ -1,3 +1,4 @@
+import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
 import EffectManager from 'effects/EffectManager';
@@ -20,6 +21,7 @@ export default class GameScene extends Phaser.Scene {
     private controls!: Phaser.Cameras.Controls.SmoothedKeyControl;
     public xPos$!: Subject<number>;
     private player!: Player;
+    private tunnelLayer!: TunnelLayer;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -38,12 +40,20 @@ export default class GameScene extends Phaser.Scene {
 
         this.worldEnv = new WorldEnv(this);
 
+        this.tunnelLayer = new TunnelLayer(this);
+
         this.cameras.main.setZoom(1);
         this.cameras.main.setBackgroundColor('#00');
 
         this.effectManager = new EffectManager(this);
 
-        this.player = new Player(this, 500, 500);
+        this.player = new Player(
+            this,
+            150,
+            150,
+            this.tunnelLayer
+        );
+
         this.cameras.main.startFollow(this.player, false, 0.1, 0.1);
 
         this.ui = new UI(this);

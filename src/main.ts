@@ -3,6 +3,7 @@ import 'phaser';
 import GameConfig from 'config/GameConfig';
 import BootScene from 'scenes/BootScene';
 import GameScene from 'scenes/GameScene';
+import Stats from 'stats.js';
 
 declare let __DEV__: any;
 const config = {
@@ -41,10 +42,10 @@ const config = {
 // @ts-ignore
 const game = new Phaser.Game(config);
 //
-// let stats = new Stats();
-// document.body.appendChild(stats.dom);
-//
-// requestAnimationFrame(function loop () {
-//     stats.update();
-//     requestAnimationFrame(loop);
-// });
+let stats = new Stats();
+document.body.appendChild(stats.dom);
+
+requestAnimationFrame(function loop () {
+    stats.update();
+    requestAnimationFrame(loop);
+});

@@ -1,3 +1,4 @@
+import TunnelLayer from 'core/tunnels/TunnelLayer';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
@@ -10,7 +11,12 @@ export default class Player extends Phaser.GameObjects.Container {
     private barel: Phaser.GameObjects.Sprite;
     private cursors: any;
 
-    constructor (scene: GameScene, x: number, y: number) {
+    constructor (
+        scene: GameScene,
+        x: number,
+        y: number,
+        private readonly tunnelLayer: TunnelLayer
+    ) {
         super(scene, x, y, []);
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
@@ -49,10 +55,13 @@ export default class Player extends Phaser.GameObjects.Container {
         if (!this.body) {
             return;
         }
-        console.log('preUpdate');
 
         // @ts-ignore
         const body: Phaser.Physics.Arcade.Body = this.body;
+
+        if (body.velocity.x !== 0 || body.velocity.y !== 0) {
+            this.tunnelLayer.addTunnelSection(this.x, this.y);
+        }
 
         if (this.cursors.left.isDown) {
             this.angle -= Player.ANGLE_SPEED;
