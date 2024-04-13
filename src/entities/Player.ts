@@ -7,6 +7,7 @@ export default class Player extends Phaser.GameObjects.Container {
 
     private static readonly SPEED: number = 6;
     private static readonly ANGLE_SPEED: number = Player.SPEED / 1.5;
+    private static readonly SPEED_SLOW: number = 3;
     private sprite: Phaser.GameObjects.Sprite;
     private barel: Phaser.GameObjects.Sprite;
     private cursors: any;
@@ -109,6 +110,6 @@ export default class Player extends Phaser.GameObjects.Container {
             this.y,
             this.rotation + (this.reverseHeading ? Math.PI : 0)
         );
-        return isInTunnel ? Player.SPEED : Player.SPEED / 3;
+        return isInTunnel ? Player.SPEED : Player.SPEED_SLOW;
     }
 }
