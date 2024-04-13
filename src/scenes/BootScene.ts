@@ -29,6 +29,7 @@ export default class BootScene extends Phaser.Scene {
 
         const settings = { frameWidth: 16, frameHeight: 16 };
         this.load.spritesheet('xxx', 'xxx.png', settings);
+        this.load.atlas('assets', 'placeholder_assets.png', 'placeholder_assets.json');
     }
 
     private startGame (): void {

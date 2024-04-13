@@ -1,6 +1,7 @@
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
 import EffectManager from 'effects/EffectManager';
+import Player from 'entities/Player';
 import $ from 'jquery';
 import Phaser from 'phaser';
 import { Subject } from 'rxjs';
@@ -18,6 +19,7 @@ export default class GameScene extends Phaser.Scene {
     private testObject!: Phaser.GameObjects.Image;
     private controls!: Phaser.Cameras.Controls.SmoothedKeyControl;
     public xPos$!: Subject<number>;
+    private player!: Player;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -25,6 +27,9 @@ export default class GameScene extends Phaser.Scene {
 
     create (): void {
         window.scene = this;
+
+        // set world size
+        this.physics.world.setBounds(0, 0, 10000, 10000);
 
         this.xPos$ = new Subject<number>();
 
@@ -35,17 +40,17 @@ export default class GameScene extends Phaser.Scene {
 
         this.cameras.main.setZoom(1);
         this.cameras.main.setBackgroundColor('#00');
-        // this.cameras.main.centerOn(GameConfig.PhaserBasicSettings.gameSize.width / 4, GameConfig.PhaserBasicSettings.gameSize.height / 4);
 
-        this.testObject = this.add.image(500, 500, 'tiles16');
         this.effectManager = new EffectManager(this);
+
+        this.player = new Player(this, 500, 500);
+        this.cameras.main.startFollow(this.player, true);
 
         this.ui = new UI(this);
     }
 
     update (time, delta): void {
-        this.testObject.x -= 0.5;
-        this.xPos$.next(this.testObject.x);
+        this.xPos$.next(this.player.x);
     }
 
     private initDebugUI (): void {
@@ -63,6 +68,10 @@ export default class GameScene extends Phaser.Scene {
     }
 
     private startCameraControls (): void {
+        if (!this.input.keyboard) {
+            return;
+        }
+
         const cursors = this.input.keyboard.createCursorKeys();
 
         const controlConfig = {
