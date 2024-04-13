@@ -68,7 +68,7 @@ export default class Player extends Phaser.GameObjects.Container {
         this.mouseControls(body, delta);
     }
 
-    private keyboardControls (body: Phaser.Physics.Arcade.Body): void {
+    private keyboardControls (body: Phaser.Physics.Arcade.Body, delta: number): void {
         if (this.cursors.left.isDown) {
             this.angle -= Player.ANGLE_SPEED;
         }
