@@ -64,6 +64,10 @@ export default class Player extends Phaser.GameObjects.Container {
             this.tunnelLayer.addTunnelSection(this.x, this.y);
         }
 
+        this.mouseControls(body, delta);
+    }
+
+    private keyboardControls (body: Phaser.Physics.Arcade.Body): void {
         if (this.cursors.left.isDown) {
             this.angle -= Player.ANGLE_SPEED;
         }
@@ -80,6 +84,23 @@ export default class Player extends Phaser.GameObjects.Container {
             this.reverseHeading = false;
             body.setVelocity(0);
         }
+    }
+
+    private mouseControls (body: Phaser.Physics.Arcade.Body, delta: number): void {
+        const pointer = this.scene.input.activePointer;
+        const angle = Phaser.Math.Angle.Between(this.x, this.y, pointer.worldX, pointer.worldY);
+
+        if (this.cursors.up.isDown) {
+            this.reverseHeading = false;
+            Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(angle, this.getSpeed() * delta, body.velocity);
+        } else if (this.cursors.down.isDown) {
+            this.reverseHeading = true;
+            Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(angle, -this.getSpeed() * delta, body.velocity);
+        } else {
+            body.setVelocity(0);
+        }
+
+        this.rotation = angle;
     }
 
     private getSpeed (): number {
