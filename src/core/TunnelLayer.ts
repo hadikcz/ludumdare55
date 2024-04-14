@@ -5,6 +5,7 @@ const CHUNK_SIZE = 1280 * 2; // 2 times the game window size
 
 export default class TunnelLayer {
 
+    private static readonly COLOR = 0x291405;
     private tunnels: boolean[][] = [];
     private circle10: Phaser.GameObjects.Graphics;
     private circle6: Phaser.GameObjects.Graphics;
@@ -15,8 +16,8 @@ export default class TunnelLayer {
         private readonly width: number,
         private readonly height: number
     ) {
-        this.circle10 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 10);
-        this.circle6 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 6);
+        this.circle10 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(TunnelLayer.COLOR, 1).fillCircle(0, 0, 10);
+        this.circle6 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(TunnelLayer.COLOR, 1).fillCircle(0, 0, 6);
 
         this.initChunks();
     }
@@ -78,7 +79,7 @@ export default class TunnelLayer {
                 // Draw the rectangle on the corresponding render texture chunk
                 let [chunkIndexX, chunkIndexY, chunkIndex] = this.getChunkIndex(x, y);
                 this.rtChunks[chunkIndex].fill(
-                    0x000000,
+                    TunnelLayer.COLOR,
                     1,
                     localX,
                     localY,
@@ -101,7 +102,7 @@ export default class TunnelLayer {
 
 
     addCircle (x: number, y: number, radius: number): void {
-        const circle = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, radius);
+        const circle = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(TunnelLayer.COLOR, 1).fillCircle(0, 0, radius);
         let [chunkIndexX, chunkIndexY, chunkIndex] = this.getChunkIndex(x, y);
         this.rtChunks[chunkIndex].draw(circle, x - chunkIndexX * CHUNK_SIZE, y - chunkIndexY * CHUNK_SIZE);
 
