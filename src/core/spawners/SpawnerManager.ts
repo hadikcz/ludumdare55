@@ -4,13 +4,15 @@ import GameScene from 'scenes/GameScene';
 
 export default class SpawnerManager {
 
-    public readonly group: Phaser.GameObjects.Group;
+    public readonly spawners: Phaser.GameObjects.Group;
+    private readonly enemies: Phaser.GameObjects.Group;
 
     constructor (
       private readonly scene: GameScene,
       private readonly player: Player
     ) {
-        this.group = this.scene.add.group();
+        this.spawners = this.scene.add.group();
+        this.enemies = this.scene.add.group();
         this.init();
     }
 
@@ -28,7 +30,7 @@ export default class SpawnerManager {
             y,
             this.player
         );
-        this.group.add(spawner);
+        this.spawners.add(spawner);
 
         this.scene.tunnelLayer.addCircle(x, y, 160);
     }

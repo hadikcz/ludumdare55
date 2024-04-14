@@ -10,10 +10,12 @@ export default class Spawner extends Phaser.GameObjects.Container {
     private static readonly SPAWN_DISTANCE = 350;
     private readonly sprite: Phaser.GameObjects.Image;
     private isActive = false;
-    private readonly enemies: Phaser.GameObjects.Group;
 
     private hp: Stat;
     private textHp: Phaser.GameObjects.Text;
+    private enemies: Enemy[] = [];
+    private timer: Phaser.Time.TimerEvent;
+    private isDying: boolean = false;
 
     constructor (
         public scene: GameScene,
@@ -32,11 +34,9 @@ export default class Spawner extends Phaser.GameObjects.Container {
         this.sprite.setScale(.3);
         this.add(this.sprite);
 
-        this.enemies = this.scene.add.group();
-
         this.setDepth(Depths.SPAWNER);
 
-        this.scene.time.addEvent({
+        this.timer =this.scene.time.addEvent({
             callback: this.tick,
             callbackScope: this,
             loop: true,
@@ -68,8 +68,7 @@ export default class Spawner extends Phaser.GameObjects.Container {
     applyDamage (damage: number): void {
         this.hp.burn(damage);
 
-        this.textHp.setText(this.hp.getPercents().toString() + '%' );
-
+        this.textHp.setText(this.hp.getPercents().toString() + '%');
         if (this.hp.getValue() <= 0) {
             this.die();
         }
@@ -80,7 +79,7 @@ export default class Spawner extends Phaser.GameObjects.Container {
             return;
         }
 
-        if (this.enemies.getLength() < this.maxEnemies) {
+        if (this.enemies.length < this.maxEnemies) {
             this.spawnEnemy();
         }
     }
@@ -98,7 +97,15 @@ export default class Spawner extends Phaser.GameObjects.Container {
                 Spawner.SPAWN_DISTANCE
             )
         );
-        this.enemies.add(enemy);
+
+        enemy.on('destroy', () => {
+            const pos = this.enemies.indexOf(enemy);
+            if (pos !== -1) {
+                this.enemies.splice(pos, 1);
+            }
+        });
+        this.scene.spawnerManager.spawners.add(enemy);
+        this.enemies.push(enemy);
     }
 
     private getDistanceToPlayer (): number {
@@ -111,6 +118,10 @@ export default class Spawner extends Phaser.GameObjects.Container {
     }
 
     private die (): void {
+        if (this.isDying) {
+            return;
+        }
+        this.isDying = true;
         const count = Phaser.Math.Between(10, 20);
         for (let i = 0; i < count; i++) {
             const bullet = new Bullet(
@@ -126,11 +137,13 @@ export default class Spawner extends Phaser.GameObjects.Container {
             this.scene.worldEnv.bullets.add(bullet);
         }
 
+        this.textHp.setVisible(false);
         this.scene.add.tween({
             targets: this,
             alpha: 0,
             duration: 3000,
             onComplete: () => {
+                this.timer.destroy();
                 this.destroy();
             }
         });

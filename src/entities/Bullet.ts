@@ -40,12 +40,14 @@ export default class Bullet extends Container {
         this.rotation = angle + Math.PI / 2;
 
         if (this.isPlayerOwned) {
-            this.scene.physics.add.overlap(this, this.scene.spawnerManager.group, (object1, object2) => {
+            this.scene.physics.add.overlap(this, this.scene.spawnerManager.spawners, (object1, object2) => {
                 const spawner = object2 as Spawner;
                 spawner.applyDamage(bulletDamage);
 
                 this.destroy();
             });
+
+
         }
     }
 
