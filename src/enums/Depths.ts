@@ -8,6 +8,7 @@ export enum Depths {
     ENEMY,
     SPAWNER,
     BULLET,
+    EXIT,
     FLY_TEXT,
     UI,
 }

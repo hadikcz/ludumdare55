@@ -86,6 +86,7 @@ export default class Player extends Phaser.GameObjects.Container {
 
     preUpdate (time: number, delta: number): void {
         if (this.isDying) return;
+        if (this.scene.portalExitSpawner.won) return;
 
 
         if (this.playerStats.shields.getValue() <= 0) {

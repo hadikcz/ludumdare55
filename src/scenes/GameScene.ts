@@ -1,3 +1,4 @@
+import PortalExitSpawner from 'core/PortalExitSpawner';
 import SafeHouse from 'core/SafeHouse';
 import SummoningRockManager from 'core/spawners/SummoningRockManager';
 import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
@@ -31,6 +32,7 @@ export default class GameScene extends Phaser.Scene {
     private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
     public spawnerManager!: SummoningRockManager;
     public upgradeItemsGroup!: Phaser.Physics.Arcade.Group;
+    public portalExitSpawner!: PortalExitSpawner;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -73,6 +75,9 @@ export default class GameScene extends Phaser.Scene {
             this.safeHouse
         );
 
+
+        this.portalExitSpawner = new PortalExitSpawner(this);
+
         this.initCamera();
         this.spawnerManager = new SummoningRockManager(this, this.player);
 
@@ -86,6 +91,7 @@ export default class GameScene extends Phaser.Scene {
     update (time, delta): void {
         this.xPos$.next(this.player.x);
         this.controls.update(delta);
+        this.portalExitSpawner.preUpdate();
     }
 
     disableControlls (): void {

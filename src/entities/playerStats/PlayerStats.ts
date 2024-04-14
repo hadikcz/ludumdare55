@@ -33,6 +33,10 @@ export default class PlayerStats {
         this.scene.events.on(Events.PLAYER_SHOOT, () => {
             this.energy.burn(PlayerStats.SHOOT_ENERGY_CONSUPTION);
         });
+
+        this.scene.events.on(Events.WIN, () => {
+            this.fillUp();
+        });
     }
 
     public setPlayerMovement (movement: boolean): void {
@@ -81,6 +85,7 @@ export default class PlayerStats {
     }
 
     private update (): void {
+        if (this.scene.portalExitSpawner.won) return;
         const regenRate = 1; // 10 per second, 1 per 100ms
 
         if (this.playerInsideSafehouse) {

@@ -64,6 +64,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
 
 
     preUpdate (time: number, delta: number): void {
+        if (this.scene.portalExitSpawner.won) return;
         if (this.hp.getValue() <= 0) {
             // @ts-ignore
             const body: Phaser.Physics.Arcade.Body = this.body;
