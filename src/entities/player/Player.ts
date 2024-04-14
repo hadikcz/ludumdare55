@@ -235,12 +235,12 @@ export default class Player extends Phaser.GameObjects.Container {
 
     private onPickedUpgradeItem (item: UpgradeItem): void {
         const type = item.getType();
-        console.log(type);
         item.destroy(true);
 
         // captailize type
         const typeText = type.charAt(0).toUpperCase() + type.slice(1);
-        this.scene.effectManager.launchFlyText(this.x, this.y, typeText + '      upgraded!');
 
+        const amount = this.playerStats.upgrade(type);
+        this.scene.effectManager.launchFlyText(this.x, this.y, typeText + '      upgraded by    ' + amount + '!');
     }
 }

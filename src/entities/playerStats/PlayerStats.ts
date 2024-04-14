@@ -1,4 +1,5 @@
 import Stat from 'entities/playerStats/Stat';
+import { UpgradeItemEnum } from 'entities/UpgradeItem';
 import { Events } from 'enums/Events';
 import GameScene from 'scenes/GameScene';
 
@@ -16,8 +17,10 @@ export default class PlayerStats {
     constructor (
         private readonly scene: GameScene,
     ) {
-        this.energy = new Stat(this.scene, 100, 100);
-        this.shields = new Stat(this.scene, 100, 100, true, 1);
+        const startEnergy = 50;
+        const startShields = 40;
+        this.energy = new Stat(this.scene, startEnergy, startEnergy);
+        this.shields = new Stat(this.scene, startShields, startShields, true, 1);
 
         this.scene.time.addEvent({
             delay: 100,
@@ -42,6 +45,20 @@ export default class PlayerStats {
     public fillUp (): void {
         this.energy.fillUp();
         this.shields.fillUp();
+    }
+
+    public upgrade (type: UpgradeItemEnum): number {
+        const amount = Phaser.Math.RND.integerInRange(5,10);
+        switch (type) {
+            case UpgradeItemEnum.ENERGY:
+                this.energy.upgrade(amount);
+                break;
+            case UpgradeItemEnum.SHIELD:
+                this.shields.upgrade(amount);
+                break;
+        }
+
+        return amount;
     }
 
     private update (): void {

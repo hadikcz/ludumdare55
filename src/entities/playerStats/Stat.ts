@@ -58,8 +58,8 @@ export default class Stat {
         return this.value;
     }
 
-    public upgrade (newMaxValue: number): void {
-        this.maxValue = newMaxValue;
+    public upgrade (addMax: number): void {
+        this.maxValue = this.maxValue + addMax;
     }
 
     public burn (amount: number): void {
