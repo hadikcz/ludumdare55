@@ -4,7 +4,7 @@ import WorldEnv from 'core/WorldEnv';
 import Bullet from 'entities/Bullet';
 import PlayerStats from 'entities/playerStats/PlayerStats';
 import Shooting from 'entities/Shooting';
-import UpgradeItem from 'entities/UpgradeItem';
+import UpgradeItem, { UpgradeItemEnum } from 'entities/UpgradeItem';
 import { Depths } from 'enums/Depths';
 import Phaser from 'phaser';
 import GameScene from 'scenes/GameScene';
@@ -13,7 +13,7 @@ export default class Player extends Phaser.GameObjects.Container {
 
     private static readonly SPEED: number = 6;
     private static readonly ANGLE_SPEED: number = Player.SPEED / 1.5;
-    private static readonly SPEED_SLOW: number = 3;
+    private static readonly SPEED_SLOW: number = 2;
     private sprite: Phaser.GameObjects.Sprite;
     private barel: Phaser.GameObjects.Sprite;
     private cursors: any;
@@ -42,7 +42,8 @@ export default class Player extends Phaser.GameObjects.Container {
             scene,
             this.worldEnv,
             this.tunnelLayer,
-            true
+            true,
+            3
         );
 
         this.playerStats = new PlayerStats(scene);
@@ -236,6 +237,15 @@ export default class Player extends Phaser.GameObjects.Container {
     private onPickedUpgradeItem (item: UpgradeItem): void {
         const type = item.getType();
         item.destroy(true);
+
+        if (type === UpgradeItemEnum.CANNON) {
+            let fireRate = this.playerShooting.getFireRate();
+            const increase = 0.5;
+            this.playerShooting.setFireRate(fireRate + increase);
+
+            this.scene.effectManager.launchFlyText(this.x, this.y, 'Firerate     upgraded!');
+            return;
+        }
 
         // captailize type
         const typeText = type.charAt(0).toUpperCase() + type.slice(1);

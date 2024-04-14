@@ -14,9 +14,18 @@ export default class Shooting {
         private readonly worldEnv: WorldEnv,
         private readonly tunnelLayer: TunnelLayer,
         private readonly isPlayerOwned = false,
-        private readonly fireRatePerSecond = 4,
+        private fireRatePerSecond = 4,
     ) {
         this.waitBetweenShoots = 1000 / this.fireRatePerSecond;
+    }
+
+    setFireRate (fireRatePerSecond: number): void {
+        this.fireRatePerSecond = fireRatePerSecond;
+        this.waitBetweenShoots = 1000 / this.fireRatePerSecond;
+    }
+
+    getFireRate (): number {
+        return this.fireRatePerSecond;
     }
 
     shoot (

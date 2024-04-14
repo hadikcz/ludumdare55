@@ -6,6 +6,7 @@ import dat, { GUI } from 'dat.gui';
 import CameraStaticFxEnergyManager from 'effects/CameraStaticFxEnergyManager';
 import EffectManager from 'effects/EffectManager';
 import Player from 'entities/player/Player';
+import UpgradeItem, { UpgradeItemEnum } from 'entities/UpgradeItem';
 import $ from 'jquery';
 import Phaser from 'phaser';
 import { Subject } from 'rxjs';
@@ -75,7 +76,11 @@ export default class GameScene extends Phaser.Scene {
         this.spawnerManager = new SpawnerManager(this, this.player);
 
         this.ui = new UI(this);
-        // });
+
+
+
+        const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON);
+        this.upgradeItemsGroup.add(item);
     }
 
     update (time, delta): void {
