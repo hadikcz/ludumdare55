@@ -1,9 +1,10 @@
 import SafeHouse from 'core/SafeHouse';
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
-import PlayerShooting from 'entities/player/PlayerShooting';
 import PlayerStats from 'entities/playerStats/PlayerStats';
+import Shooting from 'entities/Shooting';
 import { Depths } from 'enums/Depths';
+import Phaser from 'phaser';
 import GameScene from 'scenes/GameScene';
 
 export default class Player extends Phaser.GameObjects.Container {
@@ -16,7 +17,7 @@ export default class Player extends Phaser.GameObjects.Container {
     private barel: Phaser.GameObjects.Sprite;
     private cursors: any;
     private reverseHeading: boolean = false;
-    private playerShooting: PlayerShooting;
+    private playerShooting: Shooting;
     public readonly playerStats: PlayerStats;
 
     constructor (
@@ -31,7 +32,7 @@ export default class Player extends Phaser.GameObjects.Container {
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
 
-        this.playerShooting = new PlayerShooting(
+        this.playerShooting = new Shooting(
             scene,
             this.worldEnv,
             this.tunnelLayer
@@ -121,7 +122,10 @@ export default class Player extends Phaser.GameObjects.Container {
 
     private mouseControls (body: Phaser.Physics.Arcade.Body, delta: number): void {
         const pointer = this.scene.input.activePointer;
-        const angle = Phaser.Math.Angle.Between(this.x, this.y, pointer.worldX, pointer.worldY);
+        let angle = Phaser.Math.Angle.Between(this.x, this.y, pointer.worldX, pointer.worldY);
+
+        const recoil = .1;
+        angle += Phaser.Math.RND.between(-recoil, recoil);
 
         if (this.cursors.up.isDown) {
             this.reverseHeading = false;

@@ -18,7 +18,12 @@ export default class SpawnerManager {
         const x = this.player.x;
         const y = this.player.y;
 
-        const spawner = new Spawner(this.scene, x + 500, y);
+        const spawner = new Spawner(
+            this.scene,
+            x + 500,
+            y,
+            this.player
+        );
         this.group.add(spawner);
     }
 }

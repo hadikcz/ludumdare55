@@ -19,12 +19,12 @@ export default class GameScene extends Phaser.Scene {
     public effectManager!: EffectManager;
     public ui!: UI;
     private debugGui!: GUI;
-    private worldEnv!: WorldEnv;
+    public worldEnv!: WorldEnv;
     private testObject!: Phaser.GameObjects.Image;
     private controls!: Phaser.Cameras.Controls.SmoothedKeyControl;
     public xPos$!: Subject<number>;
     public player!: Player;
-    private tunnelLayer!: TunnelLayer;
+    public tunnelLayer!: TunnelLayer;
     public safeHouse!: SafeHouse;
     private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
     private spawnerManager!: SpawnerManager;

@@ -4,18 +4,19 @@ import Bullet from 'entities/Bullet';
 import { Events } from 'enums/Events';
 import GameScene from 'scenes/GameScene';
 
-export default class PlayerShooting {
+export default class Shooting {
 
-    private static readonly FIRERATE_PER_SECOND: number = 4;
-    private static readonly WAIT_BETWEEN_SHOOTS: number = 1000 / PlayerShooting.FIRERATE_PER_SECOND;
     private lastShootTime: number = 0;
+    private waitBetweenShoots: number;
 
     constructor (
         private readonly scene: GameScene,
         private readonly worldEnv: WorldEnv,
-        private readonly tunnelLayer: TunnelLayer
+        private readonly tunnelLayer: TunnelLayer,
+        private readonly isPlayerOwned = false,
+        private readonly fireRatePerSecond = 4,
     ) {
-
+        this.waitBetweenShoots = 1000 / this.fireRatePerSecond;
     }
 
     shoot (
@@ -34,7 +35,7 @@ export default class PlayerShooting {
             y,
             angle,
             initSpeed,
-            true,
+            this.isPlayerOwned,
             this.tunnelLayer
         );
         this.worldEnv.bullets.add(bullet);
@@ -44,7 +45,7 @@ export default class PlayerShooting {
 
     private canShoot (): boolean {
         const now = Date.now();
-        if (now - this.lastShootTime > PlayerShooting.WAIT_BETWEEN_SHOOTS) {
+        if (now - this.lastShootTime > this.waitBetweenShoots) {
             this.lastShootTime = now;
             return true;
         }

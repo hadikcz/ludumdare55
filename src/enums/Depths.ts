@@ -4,6 +4,7 @@ export enum Depths {
     TUNNEL,
     PLAYER,
     ROCKS,
+    ENEMY,
     SPAWNER,
     BULLET,
     FLY_TEXT,
