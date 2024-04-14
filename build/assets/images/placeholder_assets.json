@@ -1,0 +1,314 @@
+{
+	"textures": [
+		{
+			"image": "placeholder_assets.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 469,
+				"h": 684
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "assets/base",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 467,
+						"h": 463
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 467,
+						"h": 463
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 467,
+						"h": 463
+					}
+				},
+				{
+					"filename": "assets/border",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1,
+						"y": 466,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "assets/rock",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 78,
+						"h": 79
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 78,
+						"h": 79
+					},
+					"frame": {
+						"x": 1,
+						"y": 596,
+						"w": 78,
+						"h": 79
+					}
+				},
+				{
+					"filename": "assets/shield",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 59,
+						"h": 66
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 57,
+						"h": 66
+					},
+					"frame": {
+						"x": 81,
+						"y": 596,
+						"w": 57,
+						"h": 66
+					}
+				},
+				{
+					"filename": "assets/dirt",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 131,
+						"y": 466,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "assets/portal",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 210,
+						"h": 116
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 207,
+						"h": 116
+					},
+					"frame": {
+						"x": 261,
+						"y": 466,
+						"w": 207,
+						"h": 116
+					}
+				},
+				{
+					"filename": "assets/spawner",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 126,
+						"h": 107
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 4,
+						"w": 117,
+						"h": 99
+					},
+					"frame": {
+						"x": 261,
+						"y": 584,
+						"w": 117,
+						"h": 99
+					}
+				},
+				{
+					"filename": "assets/player_bullet",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 7,
+						"h": 18
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 7,
+						"h": 18
+					},
+					"frame": {
+						"x": 81,
+						"y": 664,
+						"w": 7,
+						"h": 18
+					}
+				},
+				{
+					"filename": "assets/enemy_bullet",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 90,
+						"y": 664,
+						"w": 16,
+						"h": 16
+					}
+				},
+				{
+					"filename": "assets/tank",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 53,
+						"h": 57
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 53,
+						"h": 57
+					},
+					"frame": {
+						"x": 140,
+						"y": 596,
+						"w": 53,
+						"h": 57
+					}
+				},
+				{
+					"filename": "assets/cannon",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 50,
+						"h": 46
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 195,
+						"y": 596,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "assets/barel",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 7,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 7,
+						"h": 34
+					},
+					"frame": {
+						"x": 195,
+						"y": 643,
+						"w": 7,
+						"h": 34
+					}
+				},
+				{
+					"filename": "assets/enemy",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 39,
+						"h": 54
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 39,
+						"h": 54
+					},
+					"frame": {
+						"x": 380,
+						"y": 584,
+						"w": 39,
+						"h": 54
+					}
+				},
+				{
+					"filename": "assets/energy",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 34,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 34,
+						"h": 50
+					},
+					"frame": {
+						"x": 421,
+						"y": 584,
+						"w": 34,
+						"h": 50
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:45c4decee77daaeff1c906ddf485daa7:a01da81457449f0e48cfb81cd0783a8b:00295b9a2dc3b97b1cd795e7b6bfbba8$"
+	}
+}

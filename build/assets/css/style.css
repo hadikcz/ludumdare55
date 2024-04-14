@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "arcadeclassic";
+    src: url('../fonts/arcadeclassic.ttf') format("truetype");
+}
+
+html,
+body {
+    color: #FFF;
+    /*background: #5c7a56;*/
+    /*background: #ffffff;*/
+    /*background: #e8cfa6;*/
+    /*background: #c0d470;*/
+    word-spacing: 9px;
+    /*background: #767474;*/
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -o-crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+    font-family: 'arcadeclassic', Arial;
+
+    /* Disable selection after double click */
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
+
+
+
+
+.ui {
+    width: 1280px;
+    height: 720px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    pointer-events: none;
+    /*background: #1bb7b7;*/
+}
+#content {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    pointer-events: all;
+}
+
+#datGui {
+    top: 0;
+    position: absolute;
+    z-index: 100;
+}
+
+
+
+.tooltip {
+    position: relative;
+    /*display: inline-block;*/
+    border-bottom: 1px dotted #e8cfa6; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #dcb98a;
+    border: 2px solid #b68962;
+    color: #b68962;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    /*top: 5px;*/
+    /*right: 105%;*/
+    top: 35px;
+    right: -168%;
+}
+
+.tooltip.left:hover .tooltiptext {
+    right: 0!important;
+
+}
+
