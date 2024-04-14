@@ -70,4 +70,9 @@ export default class Stat {
     public getPercents (): number {
         return (this.value / this.maxValue) * 100;
     }
+
+    public fillUp (): void {
+        this.value = this.maxValue;
+        this.value$.next(this.value);
+    }
 }

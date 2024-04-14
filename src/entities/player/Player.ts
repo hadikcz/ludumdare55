@@ -1,6 +1,7 @@
 import SafeHouse from 'core/SafeHouse';
 import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
+import Bullet from 'entities/Bullet';
 import PlayerStats from 'entities/playerStats/PlayerStats';
 import Shooting from 'entities/Shooting';
 import { Depths } from 'enums/Depths';
@@ -8,7 +9,6 @@ import Phaser from 'phaser';
 import GameScene from 'scenes/GameScene';
 
 export default class Player extends Phaser.GameObjects.Container {
-
 
     private static readonly SPEED: number = 6;
     private static readonly ANGLE_SPEED: number = Player.SPEED / 1.5;
@@ -19,9 +19,12 @@ export default class Player extends Phaser.GameObjects.Container {
     private reverseHeading: boolean = false;
     private playerShooting: Shooting;
     public readonly playerStats: PlayerStats;
+    private isDying = false;
+    private spawnX: number;
+    private spawnY: number;
 
     constructor (
-        scene: GameScene,
+        public scene: GameScene,
         x: number,
         y: number,
         private readonly tunnelLayer: TunnelLayer,
@@ -32,6 +35,8 @@ export default class Player extends Phaser.GameObjects.Container {
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
 
+        this.spawnX = x;
+        this.spawnY = y;
         this.playerShooting = new Shooting(
             scene,
             this.worldEnv,
@@ -75,6 +80,8 @@ export default class Player extends Phaser.GameObjects.Container {
     }
 
     preUpdate (time: number, delta: number): void {
+        if (this.isDying) return;
+
         const isMoving = this.isMoving();
         this.playerStats.setPlayerMovement(isMoving);
         const isInsideSafehouse = this.safeHouse.isInSafeHouse(this.x, this.y);
@@ -95,8 +102,15 @@ export default class Player extends Phaser.GameObjects.Container {
     }
 
     applyDamage (damage: number): void {
+        if (this.isDying) return;
+        const isInsideSafehouse = this.safeHouse.isInSafeHouse(this.x, this.y);
+        if (isInsideSafehouse) return;
         this.playerStats.shields.burn(damage);
         this.scene.cameras.main.flash();
+
+        if (this.playerStats.shields.getValue() <= 0) {
+            this.die();
+        }
     }
 
     private isMoving (): boolean {
@@ -167,5 +181,53 @@ export default class Player extends Phaser.GameObjects.Container {
             this.rotation + (this.reverseHeading ? Math.PI : 0)
         );
         return isInTunnel ? Player.SPEED : Player.SPEED_SLOW;
+    }
+
+    private die (): void {
+        if (this.isDying) {
+            return;
+        }
+        this.isDying = true;
+        const count = Phaser.Math.Between(20, 40);
+        for (let i = 0; i < count; i++) {
+            const bullet = new Bullet(
+                this.scene,
+                this.x,
+                this.y,
+                Phaser.Math.RND.angle(),
+                10,
+                true,
+                this.scene.tunnelLayer,
+                1
+            );
+            this.scene.worldEnv.bullets.add(bullet);
+        }
+
+        this.scene.add.tween({
+            targets: this,
+            alpha: 0,
+            duration: 3000,
+            onComplete: () => {
+                this.respawn();
+            }
+        });
+    }
+
+    private respawn (): void {
+        this.x = this.spawnX;
+        this.y = this.spawnY;
+
+
+        this.playerStats.fillUp();
+
+
+        this.scene.add.tween({
+            targets: this,
+            alpha: 1,
+            duration: 3000,
+            onComplete: () => {
+                this.isDying = false;
+            }
+        });
     }
 }

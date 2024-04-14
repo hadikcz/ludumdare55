@@ -39,6 +39,11 @@ export default class PlayerStats {
         this.playerInsideSafehouse = insideSafehouse;
     }
 
+    public fillUp (): void {
+        this.energy.fillUp();
+        this.shields.fillUp();
+    }
+
     private update (): void {
         const regenRate = 1; // 10 per second, 1 per 100ms
 
