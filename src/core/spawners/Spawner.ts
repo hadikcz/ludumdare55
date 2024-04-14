@@ -9,13 +9,13 @@ export default class Spawner extends Phaser.GameObjects.Container {
     private readonly sprite: Phaser.GameObjects.Image;
     private isActive = false;
     private readonly enemies: Phaser.GameObjects.Group;
-    private readonly maxEnemies = 5;
 
     constructor (
         public scene: GameScene,
         x: number,
         y: number,
-        private readonly player: Player
+        private readonly player: Player,
+        private readonly maxEnemies: number = 1
     ) {
         super(scene, x, y, []);
 
