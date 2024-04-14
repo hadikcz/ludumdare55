@@ -32,13 +32,17 @@ export default class SummoningRockManager {
         // random from UpgradeItemEnum
         const item = ArrayHelpers.randomEnum<UpgradeItemEnum>(UpgradeItemEnum);
 
+        const rockHp = this.getRockHp(level);
+        const maxEnemies = this.getMaxEnemies(level);
         const spawner = new SummoningRock(
             this.scene,
             x,
             y,
             this.player,
             item,
-            level
+            level,
+            maxEnemies,
+            rockHp,
         );
         this.spawners.add(spawner);
 
@@ -61,5 +65,36 @@ export default class SummoningRockManager {
         generator.spawnAroundBorder(30, SpawnerLevel.FOURTH, spawnCallback);
 
         generator.spawnInsideMap(35, spawnCallback);
+    }
+
+    private getRockHp (level: SpawnerLevel): number {
+        switch (level) {
+            case SpawnerLevel.FIRST:
+                return 100;
+            case SpawnerLevel.SECOND:
+                return 200;
+            case SpawnerLevel.THIRD:
+                return 300;
+            case SpawnerLevel.FOURTH:
+                return 400;
+            case SpawnerLevel.FIFTH:
+                return 750;
+        }
+        return 1;
+    }
+
+    private getMaxEnemies (level: SpawnerLevel): number {
+        switch (level) {
+            case SpawnerLevel.FIRST:
+                return Phaser.Math.RND.integerInRange(1, 2);
+            case SpawnerLevel.SECOND:
+                return Phaser.Math.RND.integerInRange(2, 4);
+            case SpawnerLevel.THIRD:
+                return Phaser.Math.RND.integerInRange(4, 6);
+            case SpawnerLevel.FOURTH:
+                return Phaser.Math.RND.integerInRange(6, 10);
+            case SpawnerLevel.FIFTH:
+                return Phaser.Math.RND.integerInRange(10, 15);
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
 import Bullet from 'entities/Bullet';
 import Enemy from 'entities/enemies/Enemy';
 import Player from 'entities/player/Player';
@@ -24,6 +25,7 @@ export default class SummoningRock extends Phaser.GameObjects.Container {
         y: number,
         private readonly player: Player,
         private readonly itemDrop: UpgradeItemEnum,
+        private readonly rockLevel: SpawnerLevel,
         private readonly maxEnemies: number = 1,
         private readonly initHp = 100,
     ) {
