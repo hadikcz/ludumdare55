@@ -80,6 +80,7 @@ export default class Player extends Phaser.GameObjects.Container {
         const body: Phaser.Physics.Arcade.Body = this.body as Phaser.Physics.Arcade.Body;
         body.setCircle(8, 0, 0);
 
+        // @ts-ignore
         this.scene.physics.add.overlap(this, this.scene.upgradeItemsGroup, (player, item) => this.onPickedUpgradeItem(item));
     }
 

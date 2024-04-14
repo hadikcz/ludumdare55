@@ -20,9 +20,11 @@ export default class CameraStaticFxEnergyManager {
         //energy it stat raising noise from 0 to 5 which is max, and after 10 it will start making alpha of camera up to 0.6
         // starts at 50% of energy but be faster when energy is lower
         if (energy < 60) {
+            // @ts-ignore
             this.tvStaticFx.noiseIntensity = 5 - energy / 10;
             this.scene.cameras.main.setAlpha(0.5 + energy / 100);
         } else {
+            // @ts-ignore
             this.tvStaticFx.noiseIntensity = -5;
             this.scene.cameras.main.setAlpha(1);
         }

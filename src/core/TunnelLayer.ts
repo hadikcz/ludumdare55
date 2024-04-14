@@ -6,7 +6,6 @@ const CHUNK_SIZE = 1280 * 2; // 2 times the game window size
 export default class TunnelLayer {
 
     private tunnels: boolean[][] = [];
-    private rt: Phaser.GameObjects.RenderTexture;
     private circle10: Phaser.GameObjects.Graphics;
     private circle6: Phaser.GameObjects.Graphics;
     private rtChunks: Phaser.GameObjects.RenderTexture[] = [];
