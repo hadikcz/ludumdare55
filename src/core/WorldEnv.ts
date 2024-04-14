@@ -22,20 +22,73 @@ export default class WorldEnv {
         // });
 
         this.generateTileBackgroundTexture();
+        this.generateBorderTexture();
         this.generateRandomRocks();
+
+        this.scene.physics.collide(this.rocks, this.scene.player);
     }
 
     private generateTileBackgroundTexture (): void {
         this.scene.add.tileSprite(
-            -this.scene.physics.world.bounds.width,
-            -this.scene.physics.world.bounds.height,
-            this.scene.physics.world.bounds.width * 2,
-            this.scene.physics.world.bounds.height * 2,
+            0,
+            0,
+            this.scene.physics.world.bounds.width,
+            this.scene.physics.world.bounds.height,
             'assets',
             'Environment/dirt'
         )
             .setOrigin(0, 0)
             .setDepth(Depths.BG_TEXTURE);
+    }
+
+    private generateBorderTexture (): void {
+        // top
+        this.scene.add.tileSprite(
+            -2000,
+            -1000,
+            this.scene.physics.world.bounds.width + 4000,
+            1000,
+            'assets',
+            'Environment/sand'
+        )
+            .setOrigin(0, 0)
+            .setDepth(Depths.BG_TEXTURE_BORDER);
+
+        // bottom
+        this.scene.add.tileSprite(
+            -2000,
+            this.scene.physics.world.bounds.height,
+            this.scene.physics.world.bounds.width + 4000,
+            1000,
+            'assets',
+            'Environment/sand'
+        )
+            .setOrigin(0, 0)
+            .setDepth(Depths.BG_TEXTURE_BORDER);
+
+        // left
+        this.scene.add.tileSprite(
+            -2000,
+            -1000,
+            2000,
+            this.scene.physics.world.bounds.height + 2000,
+            'assets',
+            'Environment/sand'
+        )
+            .setOrigin(0, 0)
+            .setDepth(Depths.BG_TEXTURE_BORDER);
+
+        // right
+        this.scene.add.tileSprite(
+            this.scene.physics.world.bounds.width,
+            -1000,
+            2000,
+            this.scene.physics.world.bounds.height + 2000,
+            'assets',
+            'Environment/sand'
+        )
+            .setOrigin(0, 0)
+            .setDepth(Depths.BG_TEXTURE_BORDER);
     }
 
     private generateRandomRocks (): void {
@@ -49,6 +102,7 @@ export default class WorldEnv {
                 'Smoke/smokeGrey5'
             )
                 .setDepth(Depths.ROCKS);
+            this.scene.physics.add.existing(rock);
             this.rocks.add(rock);
         }
     }

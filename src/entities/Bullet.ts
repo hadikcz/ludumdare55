@@ -52,6 +52,12 @@ export default class Bullet extends Container {
                 this.destroy();
             });
         }
+
+        if (this.isPlayerOwned) {
+            setTimeout(() => {
+                this.destroy();
+            }, 1500);
+        }
     }
 
     preUpdate (time: number, delta: number): void {

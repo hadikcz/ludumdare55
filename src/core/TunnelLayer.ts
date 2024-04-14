@@ -15,15 +15,8 @@ export default class TunnelLayer {
         private readonly width: number,
         private readonly height: number
     ) {
-        // this.rt = this.scene.add.renderTexture(0, 0, width, height)
-        // // this.rt = this.scene.add.renderTexture(0, 0, 1000, 1000)
-        //     .setOrigin(0, 0);
-        //
-        // this.rt.setDepth(Depths.TUNNEL);
-
         this.circle10 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 10);
         this.circle6 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 6);
-        // this.rt.clear();
 
         this.initChunks();
     }
@@ -35,9 +28,9 @@ export default class TunnelLayer {
                 const rtChunk = this.scene.add.renderTexture(x * CHUNK_SIZE, y * CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE)
                     .setOrigin(0, 0)
                     .setDepth(Depths.TUNNEL);
-                // fil chunk with random color
-                // rtChunk.fill(0x000000, 1);
-                rtChunk.fill(Math.floor(Math.random() * 0xFFFFFF));
+
+                // rtChunk.fill(Math.floor(Math.random() * 0xFFFFFF));
+
                 this.rtChunks.push(rtChunk);
             }
         }

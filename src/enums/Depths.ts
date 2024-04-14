@@ -1,5 +1,5 @@
 export enum Depths {
-    POND_WATER,
+    BG_TEXTURE_BORDER,
     BG_TEXTURE,
     TUNNEL,
     UPGRADE_ITEM,

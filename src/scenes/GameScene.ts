@@ -1,5 +1,6 @@
 import SafeHouse from 'core/SafeHouse';
 import SummoningRockManager from 'core/spawners/SummoningRockManager';
+import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
 import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
@@ -76,7 +77,7 @@ export default class GameScene extends Phaser.Scene {
         this.spawnerManager = new SummoningRockManager(this, this.player);
 
         this.ui = new UI(this);
-        const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON);
+        const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON, SpawnerLevel.FIRST);
         this.upgradeItemsGroup.add(item);
 
         this.startCameraControls();
