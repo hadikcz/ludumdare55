@@ -76,15 +76,20 @@ export default class GameScene extends Phaser.Scene {
         this.spawnerManager = new SpawnerManager(this, this.player);
 
         this.ui = new UI(this);
-
-
-
         const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON);
         this.upgradeItemsGroup.add(item);
+
+        this.startCameraControls();
     }
 
     update (time, delta): void {
         this.xPos$.next(this.player.x);
+        this.controls.update(delta);
+    }
+
+    disableControlls (): void {
+        this.cameras.main.stopFollow();
+        this.player.disableControlsDebug();
     }
 
     private initDebugUI (): void {

@@ -23,6 +23,7 @@ export default class Player extends Phaser.GameObjects.Container {
     private isDying = false;
     private spawnX: number;
     private spawnY: number;
+    private disabledControls = false;
 
     constructor (
         public scene: GameScene,
@@ -114,6 +115,10 @@ export default class Player extends Phaser.GameObjects.Container {
         if (this.playerStats.shields.getValue() <= 0) {
             this.die();
         }
+    }
+
+    disableControlsDebug (): void {
+        this.disabledControls = true;
     }
 
     private isMoving (): boolean {
