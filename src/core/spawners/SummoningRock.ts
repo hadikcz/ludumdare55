@@ -156,7 +156,7 @@ export default class SummoningRock extends Phaser.GameObjects.Container {
     }
 
     private spawnUpgradeItem (): void {
-        const item = new UpgradeItem(this.scene, this.x, this.y, this.itemDrop);
+        const item = new UpgradeItem(this.scene, this.x, this.y, this.itemDrop, this.rockLevel);
         this.scene.upgradeItemsGroup.add(item);
     }
 

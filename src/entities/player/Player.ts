@@ -256,7 +256,7 @@ export default class Player extends Phaser.GameObjects.Container {
         // captailize type
         const typeText = type.charAt(0).toUpperCase() + type.slice(1);
 
-        const amount = this.playerStats.upgrade(type);
+        const amount = this.playerStats.upgrade(type, item.getLevel());
         this.scene.effectManager.launchFlyText(this.x, this.y, typeText + '      upgraded by    ' + amount + '!');
     }
 }

@@ -1,3 +1,4 @@
+import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
@@ -8,6 +9,7 @@ export default class UpgradeItem extends Phaser.GameObjects.Image {
       x: number,
       y: number,
       public readonly type: UpgradeItemEnum,
+      private readonly level: SpawnerLevel
     ) {
         super(scene, x, y, 'assets', type);
         this.scene.add.existing(this);
@@ -18,6 +20,10 @@ export default class UpgradeItem extends Phaser.GameObjects.Image {
 
     getType (): UpgradeItemEnum {
         return this.type;
+    }
+
+    getLevel (): SpawnerLevel {
+        return this.level;
     }
 }
 

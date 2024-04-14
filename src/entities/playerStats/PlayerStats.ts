@@ -1,3 +1,4 @@
+import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
 import Stat from 'entities/playerStats/Stat';
 import { UpgradeItemEnum } from 'entities/UpgradeItem';
 import { Events } from 'enums/Events';
@@ -7,7 +8,7 @@ export default class PlayerStats {
 
     private static readonly IDLE_ENERGY_CONSUPTION: number = 0.03; // 0.3 for one second, 0.03 for 100ms
     private static readonly MOVEMENT_ENERGY_CONSUPTION: number = 0.05;
-    private static readonly SHOOT_ENERGY_CONSUPTION: number = 0.05;
+    private static readonly SHOOT_ENERGY_CONSUPTION: number = 0.3;
 
     public readonly energy: Stat;
     public readonly shields: Stat;
@@ -47,8 +48,26 @@ export default class PlayerStats {
         this.shields.fillUp();
     }
 
-    public upgrade (type: UpgradeItemEnum): number {
-        const amount = Phaser.Math.RND.integerInRange(5,10);
+    public upgrade (type: UpgradeItemEnum, level: SpawnerLevel): number {
+        let amount;
+        switch (level) {
+            case SpawnerLevel.FIRST:
+                amount = Phaser.Math.RND.integerInRange(5, 10);
+                break;
+            case SpawnerLevel.SECOND:
+                amount = Phaser.Math.RND.integerInRange(7, 15);
+                break;
+            case SpawnerLevel.THIRD:
+                amount = Phaser.Math.RND.integerInRange(10, 20);
+                break;
+            case SpawnerLevel.FOURTH:
+                amount = Phaser.Math.RND.integerInRange(14, 24);
+                break;
+            case SpawnerLevel.FIFTH:
+                amount = Phaser.Math.RND.integerInRange(15, 30);
+                break;
+        }
+
         switch (type) {
             case UpgradeItemEnum.ENERGY:
                 this.energy.upgrade(amount);
