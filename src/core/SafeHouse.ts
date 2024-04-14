@@ -1,4 +1,4 @@
-import TunnelLayer from 'core/tunnels/TunnelLayer';
+import TunnelLayer from 'core/TunnelLayer';
 import GameScene from 'scenes/GameScene';
 
 export default class SafeHouse {

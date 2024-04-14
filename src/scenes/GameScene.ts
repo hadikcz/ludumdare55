@@ -1,6 +1,6 @@
 import SafeHouse from 'core/SafeHouse';
 import SpawnerManager from 'core/spawners/SpawnerManager';
-import TunnelLayer from 'core/tunnels/TunnelLayer';
+import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
 import CameraStaticFxEnergyManager from 'effects/CameraStaticFxEnergyManager';

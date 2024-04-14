@@ -1,5 +1,5 @@
 import SafeHouse from 'core/SafeHouse';
-import TunnelLayer from 'core/tunnels/TunnelLayer';
+import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import PlayerStats from 'entities/playerStats/PlayerStats';
 import Shooting from 'entities/Shooting';
@@ -123,10 +123,6 @@ export default class Player extends Phaser.GameObjects.Container {
     private mouseControls (body: Phaser.Physics.Arcade.Body, delta: number): void {
         const pointer = this.scene.input.activePointer;
         let angle = Phaser.Math.Angle.Between(this.x, this.y, pointer.worldX, pointer.worldY);
-
-        const recoil = .1;
-        angle += Phaser.Math.RND.between(-recoil, recoil);
-
         if (this.cursors.up.isDown) {
             this.reverseHeading = false;
             Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation(angle, this.getSpeed() * delta, body.velocity);
@@ -138,10 +134,15 @@ export default class Player extends Phaser.GameObjects.Container {
         }
 
         if (pointer.isDown) {
+
+            let shootRotation = this.rotation;
+            // const recoil = .1;
+            // shootRotation += Phaser.Math.RND.between(-recoil, recoil);
+
             this.playerShooting.shoot(
                 this.x,
                 this.y,
-                this.rotation,
+                shootRotation,
                 (Math.abs(body.velocity.x) + Math.abs(body.velocity.x)) / 2
             );
         }

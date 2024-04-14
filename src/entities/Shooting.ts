@@ -1,4 +1,4 @@
-import TunnelLayer from 'core/tunnels/TunnelLayer';
+import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import Bullet from 'entities/Bullet';
 import { Events } from 'enums/Events';

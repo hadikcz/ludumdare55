@@ -1,5 +1,5 @@
 import Container = Phaser.GameObjects.Container;
-import TunnelLayer, { CircleSize } from 'core/tunnels/TunnelLayer';
+import TunnelLayer, { CircleSize } from 'core/TunnelLayer';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 

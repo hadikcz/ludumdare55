@@ -65,6 +65,15 @@ export default class TunnelLayer {
         }
     }
 
+    addCircle (x: number, y: number, radius: number): void {
+        const circle = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, radius);
+        this.rt.draw(circle, x, y);
+
+        this.fillCircleCoords(x, y, radius);
+
+        circle.destroy();
+    }
+
     didItCollideWithDirt (x: number, y: number): boolean {
         return !this.isInTheTunnel(x, y, 0, 0, 8);
     }
@@ -97,11 +106,19 @@ export default class TunnelLayer {
         }
     }
 
-    private initTunnels (): void {
-        for (let i = 0; i < this.scene.physics.world.bounds.width; i++) {
-            this.tunnels[i] = [];
-            for (let j = 0; j < this.scene.physics.world.bounds.height; j++) {
-                this.tunnels[i][j] = false;
+    private fillCircleCoords (x: number, y: number, radius: number): void {
+        for (let i = x - radius; i <= x + radius; i++) {
+            for (let j = y - radius; j <= y + radius; j++) {
+                // Calculate the distance between the current point (i, j) and the center (x, y)
+                const distance = Math.sqrt(Math.pow(i - x, 2) + Math.pow(j - y, 2));
+
+                // If the distance is less than or equal to the radius, consider it within the circle
+                if (distance <= radius) {
+                    if (this.tunnels[i] === undefined) {
+                        this.tunnels[i] = [];
+                    }
+                    this.tunnels[i][j] = true;
+                }
             }
         }
     }

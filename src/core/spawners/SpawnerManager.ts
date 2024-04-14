@@ -18,12 +18,18 @@ export default class SpawnerManager {
         const x = this.player.x;
         const y = this.player.y;
 
+        this.spawn(x + 500, y);
+    }
+
+    private spawn (x, y): void {
         const spawner = new Spawner(
             this.scene,
-            x + 500,
+            x,
             y,
             this.player
         );
         this.group.add(spawner);
+
+        this.scene.tunnelLayer.addCircle(x, y, 160);
     }
 }
