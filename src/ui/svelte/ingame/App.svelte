@@ -5,10 +5,16 @@
 
     export let scene: GameScene;
 
-	let posX = 0;
-	scene.xPos$.subscribe((value) => {
-		posX = value;
-	});
+
+    let energy = scene.player.playerStats.energy.getValue();
+    scene.player.playerStats.energy.value$.subscribe((value) => {
+        energy = value;
+    });
+
+    let shields = scene.player.playerStats.shields.getValue();
+    scene.player.playerStats.shields.value$.subscribe((value) => {
+        shields = value;
+    });
 
 	onDestroy(() => {
 		console.log('main app svelte DESTYROYD');
@@ -31,7 +37,8 @@
 <main style="pointer-events: all">
 	<div class="top-bar">
 		<div style="width: 100px; height: 50px; background: red; color: white">
-			{posX}
+			E: {Math.round(energy)}<br>
+            S: {Math.round(shields)}
 		</div>
 	</div>
 </main>

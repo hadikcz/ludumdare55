@@ -1,6 +1,7 @@
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import Bullet from 'entities/Bullet';
+import { Events } from 'enums/Events';
 import GameScene from 'scenes/GameScene';
 
 export default class PlayerShooting {
@@ -37,6 +38,8 @@ export default class PlayerShooting {
             this.tunnelLayer
         );
         this.worldEnv.bullets.add(bullet);
+
+        this.scene.events.emit(Events.PLAYER_SHOOT);
     }
 
     private canShoot (): boolean {

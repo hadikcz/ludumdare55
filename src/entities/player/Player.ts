@@ -1,6 +1,7 @@
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import PlayerShooting from 'entities/player/PlayerShooting';
+import PlayerStats from 'entities/playerStats/PlayerStats';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
@@ -15,6 +16,7 @@ export default class Player extends Phaser.GameObjects.Container {
     private cursors: any;
     private reverseHeading: boolean = false;
     private playerShooting: PlayerShooting;
+    public readonly playerStats: PlayerStats;
 
     constructor (
         scene: GameScene,
@@ -32,6 +34,8 @@ export default class Player extends Phaser.GameObjects.Container {
             this.worldEnv,
             this.tunnelLayer
         );
+
+        this.playerStats = new PlayerStats(scene);
 
         const scaleOfSprite = .3;
         this.sprite = this.scene.add.sprite(0, 0, 'assets', 'Tanks/tankGreen')
@@ -64,6 +68,9 @@ export default class Player extends Phaser.GameObjects.Container {
     }
 
     preUpdate (time: number, delta: number): void {
+        const isMoving = this.isMoving();
+        this.playerStats.setPlayerMovement(isMoving);
+
         if (!this.body) {
             return;
         }
@@ -71,11 +78,22 @@ export default class Player extends Phaser.GameObjects.Container {
         // @ts-ignore
         const body: Phaser.Physics.Arcade.Body = this.body;
 
-        if (body.velocity.x !== 0 || body.velocity.y !== 0) {
+        if (isMoving) {
             this.tunnelLayer.addTunnelSection(this.x, this.y);
         }
 
         this.mouseControls(body, delta);
+    }
+
+    private isMoving (): boolean {
+        if (!this.body) {
+            return false;
+        }
+
+        // @ts-ignore
+        const body: Phaser.Physics.Arcade.Body = this.body;
+
+        return body.velocity.x !== 0 || body.velocity.y !== 0;
     }
 
     private keyboardControls (body: Phaser.Physics.Arcade.Body, delta: number): void {

@@ -20,7 +20,7 @@ export default class GameScene extends Phaser.Scene {
     private testObject!: Phaser.GameObjects.Image;
     private controls!: Phaser.Cameras.Controls.SmoothedKeyControl;
     public xPos$!: Subject<number>;
-    private player!: Player;
+    public player!: Player;
     private tunnelLayer!: TunnelLayer;
 
     constructor () {
