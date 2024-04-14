@@ -14,6 +14,7 @@ export default class TunnelLayer {
         private readonly height: number
     ) {
         this.rt = this.scene.add.renderTexture(0, 0, width, height)
+        // this.rt = this.scene.add.renderTexture(0, 0, 1000, 1000)
             .setOrigin(0, 0);
 
         this.rt.setDepth(Depths.TUNNEL);
