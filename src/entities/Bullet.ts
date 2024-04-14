@@ -1,5 +1,5 @@
 import Container = Phaser.GameObjects.Container;
-import Spawner from 'core/spawners/Spawner';
+import SummoningRock from 'core/spawners/SummoningRock';
 import TunnelLayer, { CircleSize } from 'core/TunnelLayer';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
@@ -41,7 +41,7 @@ export default class Bullet extends Container {
 
         if (this.isPlayerOwned) {
             this.scene.physics.add.overlap(this, this.scene.spawnerManager.spawners, (object1, object2) => {
-                const spawner = object2 as Spawner;
+                const spawner = object2 as SummoningRock;
                 spawner.applyDamage(bulletDamage);
 
                 this.destroy();

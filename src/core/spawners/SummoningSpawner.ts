@@ -6,7 +6,7 @@ export enum SpawnerLevel {
 }
 
 
-export class SpawnerGenerator {
+export class SummoningSpawner {
     private padding: number;
     private minDistance: number;
     private noGoZoneRadius: number;

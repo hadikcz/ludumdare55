@@ -6,7 +6,7 @@ import UpgradeItem, { UpgradeItemEnum } from 'entities/UpgradeItem';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
-export default class Spawner extends Phaser.GameObjects.Container {
+export default class SummoningRock extends Phaser.GameObjects.Container {
 
     private static readonly SPAWN_DISTANCE = 350;
     private readonly sprite: Phaser.GameObjects.Image;
@@ -60,7 +60,7 @@ export default class Spawner extends Phaser.GameObjects.Container {
 
     preUpdate (): void {
         const distanceToPlayer = this.getDistanceToPlayer();
-        this.isActive = distanceToPlayer < Spawner.SPAWN_DISTANCE;
+        this.isActive = distanceToPlayer < SummoningRock.SPAWN_DISTANCE;
     }
 
     getHp (): Stat {
@@ -96,7 +96,7 @@ export default class Spawner extends Phaser.GameObjects.Container {
                 x,
                 y,
                 this.player,
-                Spawner.SPAWN_DISTANCE
+                SummoningRock.SPAWN_DISTANCE
             )
         );
 

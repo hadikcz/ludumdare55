@@ -1,5 +1,5 @@
 import SafeHouse from 'core/SafeHouse';
-import SpawnerManager from 'core/spawners/SpawnerManager';
+import SummoningRockManager from 'core/spawners/SummoningRockManager';
 import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
@@ -28,7 +28,7 @@ export default class GameScene extends Phaser.Scene {
     public tunnelLayer!: TunnelLayer;
     public safeHouse!: SafeHouse;
     private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
-    public spawnerManager!: SpawnerManager;
+    public spawnerManager!: SummoningRockManager;
     public upgradeItemsGroup!: Phaser.Physics.Arcade.Group;
 
     constructor () {
@@ -73,7 +73,7 @@ export default class GameScene extends Phaser.Scene {
         );
 
         this.initCamera();
-        this.spawnerManager = new SpawnerManager(this, this.player);
+        this.spawnerManager = new SummoningRockManager(this, this.player);
 
         this.ui = new UI(this);
         const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON);

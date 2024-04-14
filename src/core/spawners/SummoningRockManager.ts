@@ -1,11 +1,11 @@
-import Spawner from 'core/spawners/Spawner';
-import { SpawnerGenerator, SpawnerLevel } from 'core/spawners/SpawnerGenerator';
+import SummoningRock from 'core/spawners/SummoningRock';
+import { SpawnerLevel,SummoningSpawner } from 'core/spawners/SummoningSpawner';
 import Player from 'entities/player/Player';
 import { UpgradeItemEnum } from 'entities/UpgradeItem';
 import ArrayHelpers from 'helpers/ArrayHelpers';
 import GameScene from 'scenes/GameScene';
 
-export default class SpawnerManager {
+export default class SummoningRockManager {
 
     public readonly spawners: Phaser.GameObjects.Group;
     private readonly enemies: Phaser.GameObjects.Group;
@@ -32,7 +32,7 @@ export default class SpawnerManager {
         // random from UpgradeItemEnum
         const item = ArrayHelpers.randomEnum<UpgradeItemEnum>(UpgradeItemEnum);
 
-        const spawner = new Spawner(
+        const spawner = new SummoningRock(
             this.scene,
             x,
             y,
@@ -46,7 +46,7 @@ export default class SpawnerManager {
     }
 
     private spawnAll (): void {
-        const generator = new SpawnerGenerator(
+        const generator = new SummoningSpawner(
             300,
             350,
             600,
