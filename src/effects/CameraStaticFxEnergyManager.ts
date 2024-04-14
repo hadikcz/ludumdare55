@@ -13,6 +13,7 @@ export default class CameraStaticFxEnergyManager {
         // this.scene.cameras.main.setAlpha(0.5);
         this.tvStaticFx = this.scene.cameras.main.getPostPipeline(TvStaticFx);
 
+        // @ts-ignore
         this.tvStaticFx.noiseIntensity = 0;
     }
 
