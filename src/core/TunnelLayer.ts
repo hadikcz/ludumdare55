@@ -35,6 +35,9 @@ export default class TunnelLayer {
                 const rtChunk = this.scene.add.renderTexture(x * CHUNK_SIZE, y * CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE)
                     .setOrigin(0, 0)
                     .setDepth(Depths.TUNNEL);
+                // fil chunk with random color
+                // rtChunk.fill(0x000000, 1);
+                rtChunk.fill(Math.floor(Math.random() * 0xFFFFFF));
                 this.rtChunks.push(rtChunk);
             }
         }
@@ -57,9 +60,7 @@ export default class TunnelLayer {
             circle = this.circle6;
         }
 
-        const chunkIndexX = Math.floor(x / CHUNK_SIZE);
-        const chunkIndexY = Math.floor(y / CHUNK_SIZE);
-        const chunkIndex = chunkIndexY * Math.ceil(this.width / CHUNK_SIZE) + chunkIndexX;
+        let [chunkIndexX, chunkIndexY, chunkIndex] = this.getChunkIndex(x, y);
         this.rtChunks[chunkIndex].draw(circle, x - chunkIndexX * CHUNK_SIZE, y - chunkIndexY * CHUNK_SIZE);
     }
 
@@ -82,7 +83,7 @@ export default class TunnelLayer {
                 const localHeight = Math.min(chunkSize - localY, height);
 
                 // Draw the rectangle on the corresponding render texture chunk
-                const chunkIndex = chunkY * Math.ceil(this.width / chunkSize) + chunkX;
+                let [chunkIndexX, chunkIndexY, chunkIndex] = this.getChunkIndex(x, y);
                 this.rtChunks[chunkIndex].fill(
                     0x000000,
                     1,
@@ -108,10 +109,7 @@ export default class TunnelLayer {
 
     addCircle (x: number, y: number, radius: number): void {
         const circle = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, radius);
-
-        const chunkIndexX = Math.floor(x / CHUNK_SIZE);
-        const chunkIndexY = Math.floor(y / CHUNK_SIZE);
-        const chunkIndex = chunkIndexY * Math.ceil(this.width / CHUNK_SIZE) + chunkIndexX;
+        let [chunkIndexX, chunkIndexY, chunkIndex] = this.getChunkIndex(x, y);
         this.rtChunks[chunkIndex].draw(circle, x - chunkIndexX * CHUNK_SIZE, y - chunkIndexY * CHUNK_SIZE);
 
         this.fillCircleCoords(x, y, radius);
@@ -166,6 +164,16 @@ export default class TunnelLayer {
                 }
             }
         }
+    }
+
+    private getChunkIndex (x: number, y: number): [number, number, number] {
+        const chunkIndexX = Math.floor(x / CHUNK_SIZE);
+        const chunkIndexY = Math.floor(y / CHUNK_SIZE);
+        return [
+            chunkIndexX,
+            chunkIndexY,
+            chunkIndexX * Math.ceil(this.height / CHUNK_SIZE) + chunkIndexY
+        ];
     }
 }
 

@@ -53,7 +53,7 @@ export default class SummoningRockManager {
         const generator = new SummoningSpawner(
             300,
             350,
-            600,
+            450,
             this.scene.physics.world.bounds
         );
 
