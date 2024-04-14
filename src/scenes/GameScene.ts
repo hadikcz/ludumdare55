@@ -1,4 +1,5 @@
 import SafeHouse from 'core/SafeHouse';
+import SpawnerManager from 'core/spawners/SpawnerManager';
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
@@ -26,6 +27,7 @@ export default class GameScene extends Phaser.Scene {
     private tunnelLayer!: TunnelLayer;
     public safeHouse!: SafeHouse;
     private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
+    private spawnerManager!: SpawnerManager;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -71,6 +73,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.1);
         this.cameraStaticFxEnergyManager = new CameraStaticFxEnergyManager(this);
+        this.spawnerManager = new SpawnerManager(this, this.player);
 
         this.ui = new UI(this);
         // });

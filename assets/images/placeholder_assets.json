@@ -4,11 +4,32 @@
 			"image": "placeholder_assets.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1756,
-				"h": 252
+				"w": 508,
+				"h": 1093
 			},
 			"scale": 1,
 			"frames": [
+				{
+					"filename": "spawner",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 327,
+						"h": 346
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 327,
+						"h": 346
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 327,
+						"h": 346
+					}
+				},
 				{
 					"filename": "Environment/dirt",
 					"rotated": false,
@@ -25,7 +46,49 @@
 					},
 					"frame": {
 						"x": 1,
+						"y": 349,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "Environment/grass",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 330,
 						"y": 1,
+						"w": 128,
+						"h": 128
+					}
+				},
+				{
+					"filename": "Environment/sand",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 1,
+						"y": 479,
 						"w": 128,
 						"h": 128
 					}
@@ -45,8 +108,8 @@
 						"h": 107
 					},
 					"frame": {
-						"x": 1,
-						"y": 131,
+						"x": 131,
+						"y": 349,
 						"w": 98,
 						"h": 107
 					}
@@ -66,31 +129,10 @@
 						"h": 107
 					},
 					"frame": {
-						"x": 101,
+						"x": 330,
 						"y": 131,
 						"w": 98,
 						"h": 107
-					}
-				},
-				{
-					"filename": "Environment/grass",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 131,
-						"y": 1,
-						"w": 128,
-						"h": 128
 					}
 				},
 				{
@@ -108,31 +150,10 @@
 						"h": 107
 					},
 					"frame": {
-						"x": 201,
-						"y": 131,
+						"x": 1,
+						"y": 609,
 						"w": 98,
 						"h": 107
-					}
-				},
-				{
-					"filename": "Environment/sand",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 128
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 128
-					},
-					"frame": {
-						"x": 261,
-						"y": 1,
-						"w": 128,
-						"h": 128
 					}
 				},
 				{
@@ -150,8 +171,8 @@
 						"h": 107
 					},
 					"frame": {
-						"x": 301,
-						"y": 131,
+						"x": 131,
+						"y": 458,
 						"w": 98,
 						"h": 107
 					}
@@ -171,367 +192,10 @@
 						"h": 107
 					},
 					"frame": {
-						"x": 391,
-						"y": 1,
+						"x": 330,
+						"y": 240,
 						"w": 98,
 						"h": 107
-					}
-				},
-				{
-					"filename": "Tanks/tracksLarge",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 82,
-						"h": 104
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 82,
-						"h": 104
-					},
-					"frame": {
-						"x": 401,
-						"y": 110,
-						"w": 82,
-						"h": 104
-					}
-				},
-				{
-					"filename": "Bullets/bulletBeigeSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 401,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletBeige_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 423,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletBlueSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 445,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletBlue_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 467,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Tanks/tracksSmall",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 74,
-						"h": 104
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 74,
-						"h": 104
-					},
-					"frame": {
-						"x": 485,
-						"y": 110,
-						"w": 74,
-						"h": 104
-					}
-				},
-				{
-					"filename": "Bullets/bulletGreenSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 489,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletGreen_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 511,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletRedSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 533,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletRed_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 555,
-						"y": 216,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Smoke/smokeGrey2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 90,
-						"h": 99
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 90,
-						"h": 99
-					},
-					"frame": {
-						"x": 491,
-						"y": 1,
-						"w": 90,
-						"h": 99
-					}
-				},
-				{
-					"filename": "Smoke/smokeOrange2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 90,
-						"h": 99
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 90,
-						"h": 99
-					},
-					"frame": {
-						"x": 561,
-						"y": 102,
-						"w": 90,
-						"h": 99
-					}
-				},
-				{
-					"filename": "Smoke/smokeWhite1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 90,
-						"h": 99
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 90,
-						"h": 99
-					},
-					"frame": {
-						"x": 583,
-						"y": 1,
-						"w": 90,
-						"h": 99
-					}
-				},
-				{
-					"filename": "Obstacles/barrelGreen_up",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 577,
-						"y": 203,
-						"w": 48,
-						"h": 48
-					}
-				},
-				{
-					"filename": "Obstacles/barrelGrey_up",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 627,
-						"y": 203,
-						"w": 48,
-						"h": 48
-					}
-				},
-				{
-					"filename": "Smoke/smokeYellow2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 90,
-						"h": 99
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 90,
-						"h": 99
-					},
-					"frame": {
-						"x": 653,
-						"y": 102,
-						"w": 90,
-						"h": 99
-					}
-				},
-				{
-					"filename": "Obstacles/barrelRed_up",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 48,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 48,
-						"h": 48
-					},
-					"frame": {
-						"x": 677,
-						"y": 203,
-						"w": 48,
-						"h": 48
 					}
 				},
 				{
@@ -549,31 +213,10 @@
 						"h": 97
 					},
 					"frame": {
-						"x": 675,
-						"y": 1,
+						"x": 231,
+						"y": 349,
 						"w": 100,
 						"h": 97
-					}
-				},
-				{
-					"filename": "Obstacles/sandbagBeige",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 66,
-						"h": 44
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 66,
-						"h": 44
-					},
-					"frame": {
-						"x": 727,
-						"y": 203,
-						"w": 66,
-						"h": 44
 					}
 				},
 				{
@@ -591,8 +234,8 @@
 						"h": 97
 					},
 					"frame": {
-						"x": 745,
-						"y": 100,
+						"x": 231,
+						"y": 448,
 						"w": 100,
 						"h": 97
 					}
@@ -612,73 +255,10 @@
 						"h": 97
 					},
 					"frame": {
-						"x": 777,
-						"y": 1,
+						"x": 1,
+						"y": 718,
 						"w": 100,
 						"h": 97
-					}
-				},
-				{
-					"filename": "Tanks/barrelBeige",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 50
-					},
-					"frame": {
-						"x": 795,
-						"y": 199,
-						"w": 16,
-						"h": 50
-					}
-				},
-				{
-					"filename": "Tanks/barrelBlack",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 50
-					},
-					"frame": {
-						"x": 813,
-						"y": 199,
-						"w": 16,
-						"h": 50
-					}
-				},
-				{
-					"filename": "Tanks/barrelBlue",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 16,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 50
-					},
-					"frame": {
-						"x": 831,
-						"y": 199,
-						"w": 16,
-						"h": 50
 					}
 				},
 				{
@@ -696,8 +276,8 @@
 						"h": 97
 					},
 					"frame": {
-						"x": 847,
-						"y": 100,
+						"x": 1,
+						"y": 817,
 						"w": 100,
 						"h": 97
 					}
@@ -717,73 +297,136 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 879,
-						"y": 1,
+						"x": 1,
+						"y": 916,
 						"w": 96,
 						"h": 96
 					}
 				},
 				{
-					"filename": "Tanks/barrelGreen",
+					"filename": "Tanks/tankBeige_outline",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 16,
-						"h": 50
+						"w": 83,
+						"h": 78
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 16,
-						"h": 50
+						"w": 83,
+						"h": 78
 					},
 					"frame": {
-						"x": 849,
-						"y": 199,
-						"w": 16,
-						"h": 50
+						"x": 1,
+						"y": 1014,
+						"w": 83,
+						"h": 78
 					}
 				},
 				{
-					"filename": "Tanks/barrelRed",
+					"filename": "Smoke/smokeGrey2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 16,
-						"h": 50
+						"w": 90,
+						"h": 99
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 16,
-						"h": 50
+						"w": 90,
+						"h": 99
 					},
 					"frame": {
-						"x": 867,
-						"y": 199,
-						"w": 16,
-						"h": 50
+						"x": 333,
+						"y": 349,
+						"w": 90,
+						"h": 99
 					}
 				},
 				{
-					"filename": "Obstacles/sandbagBrown",
+					"filename": "Tanks/tracksLarge",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 66,
-						"h": 44
+						"w": 82,
+						"h": 104
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 66,
-						"h": 44
+						"w": 82,
+						"h": 104
 					},
 					"frame": {
-						"x": 885,
-						"y": 199,
-						"w": 66,
-						"h": 44
+						"x": 425,
+						"y": 349,
+						"w": 82,
+						"h": 104
+					}
+				},
+				{
+					"filename": "Smoke/smokeOrange2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 90,
+						"h": 99
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 90,
+						"h": 99
+					},
+					"frame": {
+						"x": 333,
+						"y": 450,
+						"w": 90,
+						"h": 99
+					}
+				},
+				{
+					"filename": "Tanks/tankBlack_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 83,
+						"h": 78
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 83,
+						"h": 78
+					},
+					"frame": {
+						"x": 86,
+						"y": 1014,
+						"w": 83,
+						"h": 78
+					}
+				},
+				{
+					"filename": "Tanks/tracksSmall",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 74,
+						"h": 104
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 74,
+						"h": 104
+					},
+					"frame": {
+						"x": 425,
+						"y": 455,
+						"w": 74,
+						"h": 104
 					}
 				},
 				{
@@ -801,94 +444,10 @@
 						"h": 89
 					},
 					"frame": {
-						"x": 949,
-						"y": 99,
+						"x": 131,
+						"y": 567,
 						"w": 92,
 						"h": 89
-					}
-				},
-				{
-					"filename": "Tanks/barrelBeige_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 58
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 58
-					},
-					"frame": {
-						"x": 953,
-						"y": 190,
-						"w": 24,
-						"h": 58
-					}
-				},
-				{
-					"filename": "Tanks/barrelBlack_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 58
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 58
-					},
-					"frame": {
-						"x": 979,
-						"y": 190,
-						"w": 24,
-						"h": 58
-					}
-				},
-				{
-					"filename": "Tanks/barrelBlue_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 58
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 58
-					},
-					"frame": {
-						"x": 1005,
-						"y": 190,
-						"w": 24,
-						"h": 58
-					}
-				},
-				{
-					"filename": "Tanks/barrelGreen_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 58
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 58
-					},
-					"frame": {
-						"x": 1031,
-						"y": 190,
-						"w": 24,
-						"h": 58
 					}
 				},
 				{
@@ -906,8 +465,8 @@
 						"h": 89
 					},
 					"frame": {
-						"x": 977,
-						"y": 1,
+						"x": 231,
+						"y": 547,
 						"w": 92,
 						"h": 89
 					}
@@ -927,31 +486,31 @@
 						"h": 89
 					},
 					"frame": {
-						"x": 1043,
-						"y": 92,
+						"x": 325,
+						"y": 551,
 						"w": 92,
 						"h": 89
 					}
 				},
 				{
-					"filename": "Smoke/smokeYellow1",
+					"filename": "Environment/treeSmall",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 92,
-						"h": 89
+						"w": 87,
+						"h": 87
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 92,
-						"h": 89
+						"w": 87,
+						"h": 87
 					},
 					"frame": {
-						"x": 1071,
-						"y": 1,
-						"w": 92,
-						"h": 89
+						"x": 419,
+						"y": 561,
+						"w": 87,
+						"h": 87
 					}
 				},
 				{
@@ -969,8 +528,8 @@
 						"h": 62
 					},
 					"frame": {
-						"x": 1057,
-						"y": 183,
+						"x": 460,
+						"y": 1,
 						"w": 44,
 						"h": 62
 					}
@@ -990,31 +549,73 @@
 						"h": 62
 					},
 					"frame": {
-						"x": 1103,
-						"y": 183,
+						"x": 460,
+						"y": 65,
 						"w": 44,
 						"h": 62
 					}
 				},
 				{
-					"filename": "Environment/treeSmall",
+					"filename": "Smoke/smokeYellow1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 87,
-						"h": 87
+						"w": 92,
+						"h": 89
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 87,
-						"h": 87
+						"w": 92,
+						"h": 89
 					},
 					"frame": {
-						"x": 1137,
-						"y": 92,
-						"w": 87,
-						"h": 87
+						"x": 225,
+						"y": 638,
+						"w": 92,
+						"h": 89
+					}
+				},
+				{
+					"filename": "Smoke/smokeWhite1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 90,
+						"h": 99
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 90,
+						"h": 99
+					},
+					"frame": {
+						"x": 319,
+						"y": 642,
+						"w": 90,
+						"h": 99
+					}
+				},
+				{
+					"filename": "Smoke/smokeYellow2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 90,
+						"h": 99
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 90,
+						"h": 99
+					},
+					"frame": {
+						"x": 411,
+						"y": 650,
+						"w": 90,
+						"h": 99
 					}
 				},
 				{
@@ -1032,73 +633,10 @@
 						"h": 70
 					},
 					"frame": {
-						"x": 1149,
-						"y": 181,
+						"x": 430,
+						"y": 131,
 						"w": 75,
 						"h": 70
-					}
-				},
-				{
-					"filename": "Smoke/smokeGrey0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 87,
-						"h": 87
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 87,
-						"h": 87
-					},
-					"frame": {
-						"x": 1165,
-						"y": 1,
-						"w": 87,
-						"h": 87
-					}
-				},
-				{
-					"filename": "Smoke/smokeOrange0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 87,
-						"h": 87
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 87,
-						"h": 87
-					},
-					"frame": {
-						"x": 1226,
-						"y": 90,
-						"w": 87,
-						"h": 87
-					}
-				},
-				{
-					"filename": "Smoke/smokeWhite5",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 87,
-						"h": 87
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 87,
-						"h": 87
-					},
-					"frame": {
-						"x": 1254,
-						"y": 1,
-						"w": 87,
-						"h": 87
 					}
 				},
 				{
@@ -1116,8 +654,8 @@
 						"h": 70
 					},
 					"frame": {
-						"x": 1226,
-						"y": 179,
+						"x": 430,
+						"y": 203,
 						"w": 75,
 						"h": 70
 					}
@@ -1137,10 +675,73 @@
 						"h": 70
 					},
 					"frame": {
-						"x": 1303,
-						"y": 179,
+						"x": 430,
+						"y": 275,
 						"w": 75,
 						"h": 70
+					}
+				},
+				{
+					"filename": "Smoke/smokeGrey0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 87
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 87
+					},
+					"frame": {
+						"x": 99,
+						"y": 916,
+						"w": 87,
+						"h": 87
+					}
+				},
+				{
+					"filename": "Smoke/smokeOrange0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 87
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 87
+					},
+					"frame": {
+						"x": 171,
+						"y": 1005,
+						"w": 87,
+						"h": 87
+					}
+				},
+				{
+					"filename": "Smoke/smokeWhite5",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 87,
+						"h": 87
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 87,
+						"h": 87
+					},
+					"frame": {
+						"x": 103,
+						"y": 658,
+						"w": 87,
+						"h": 87
 					}
 				},
 				{
@@ -1158,157 +759,10 @@
 						"h": 87
 					},
 					"frame": {
-						"x": 1315,
-						"y": 90,
+						"x": 103,
+						"y": 747,
 						"w": 87,
 						"h": 87
-					}
-				},
-				{
-					"filename": "Tanks/tankGreen",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 75,
-						"h": 70
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 75,
-						"h": 70
-					},
-					"frame": {
-						"x": 1380,
-						"y": 179,
-						"w": 75,
-						"h": 70
-					}
-				},
-				{
-					"filename": "Smoke/smokeGrey3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 79,
-						"h": 79
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 79,
-						"h": 79
-					},
-					"frame": {
-						"x": 1343,
-						"y": 1,
-						"w": 79,
-						"h": 79
-					}
-				},
-				{
-					"filename": "Smoke/smokeOrange3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 79,
-						"h": 79
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 79,
-						"h": 79
-					},
-					"frame": {
-						"x": 1404,
-						"y": 82,
-						"w": 79,
-						"h": 79
-					}
-				},
-				{
-					"filename": "Smoke/smokeWhite2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 79,
-						"h": 79
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 79,
-						"h": 79
-					},
-					"frame": {
-						"x": 1424,
-						"y": 1,
-						"w": 79,
-						"h": 79
-					}
-				},
-				{
-					"filename": "Smoke/smokeYellow3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 79,
-						"h": 79
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 79,
-						"h": 79
-					},
-					"frame": {
-						"x": 1457,
-						"y": 163,
-						"w": 79,
-						"h": 79
-					}
-				},
-				{
-					"filename": "Tanks/tankBeige_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 83,
-						"h": 78
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 83,
-						"h": 78
-					},
-					"frame": {
-						"x": 1485,
-						"y": 82,
-						"w": 83,
-						"h": 78
-					}
-				},
-				{
-					"filename": "Tanks/tankBlack_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 83,
-						"h": 78
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 83,
-						"h": 78
-					},
-					"frame": {
-						"x": 1505,
-						"y": 1,
-						"w": 83,
-						"h": 78
 					}
 				},
 				{
@@ -1326,8 +780,8 @@
 						"h": 78
 					},
 					"frame": {
-						"x": 1538,
-						"y": 162,
+						"x": 103,
+						"y": 836,
 						"w": 83,
 						"h": 78
 					}
@@ -1347,8 +801,8 @@
 						"h": 78
 					},
 					"frame": {
-						"x": 1570,
-						"y": 81,
+						"x": 192,
+						"y": 729,
 						"w": 83,
 						"h": 78
 					}
@@ -1368,14 +822,98 @@
 						"h": 78
 					},
 					"frame": {
-						"x": 1590,
-						"y": 1,
+						"x": 192,
+						"y": 809,
 						"w": 83,
 						"h": 78
 					}
 				},
 				{
-					"filename": "Tanks/tankRed",
+					"filename": "Smoke/smokeGrey3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 79,
+						"h": 79
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 79,
+						"h": 79
+					},
+					"frame": {
+						"x": 188,
+						"y": 889,
+						"w": 79,
+						"h": 79
+					}
+				},
+				{
+					"filename": "Smoke/smokeOrange3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 79,
+						"h": 79
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 79,
+						"h": 79
+					},
+					"frame": {
+						"x": 277,
+						"y": 743,
+						"w": 79,
+						"h": 79
+					}
+				},
+				{
+					"filename": "Smoke/smokeWhite2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 79,
+						"h": 79
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 79,
+						"h": 79
+					},
+					"frame": {
+						"x": 277,
+						"y": 824,
+						"w": 79,
+						"h": 79
+					}
+				},
+				{
+					"filename": "Smoke/smokeYellow3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 79,
+						"h": 79
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 79,
+						"h": 79
+					},
+					"frame": {
+						"x": 269,
+						"y": 905,
+						"w": 79,
+						"h": 79
+					}
+				},
+				{
+					"filename": "Tanks/tankGreen",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -1389,8 +927,8 @@
 						"h": 70
 					},
 					"frame": {
-						"x": 1675,
-						"y": 1,
+						"x": 260,
+						"y": 986,
 						"w": 75,
 						"h": 70
 					}
@@ -1410,10 +948,514 @@
 						"h": 62
 					},
 					"frame": {
-						"x": 1623,
-						"y": 161,
+						"x": 358,
+						"y": 743,
 						"w": 44,
 						"h": 62
+					}
+				},
+				{
+					"filename": "Tanks/tankRed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 75,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 75,
+						"h": 70
+					},
+					"frame": {
+						"x": 404,
+						"y": 751,
+						"w": 75,
+						"h": 70
+					}
+				},
+				{
+					"filename": "Obstacles/barrelGrey_side",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 62
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 62
+					},
+					"frame": {
+						"x": 358,
+						"y": 807,
+						"w": 44,
+						"h": 62
+					}
+				},
+				{
+					"filename": "Obstacles/sandbagBeige",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 66,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 66,
+						"h": 44
+					},
+					"frame": {
+						"x": 404,
+						"y": 823,
+						"w": 66,
+						"h": 44
+					}
+				},
+				{
+					"filename": "Tanks/barrelBeige_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 58
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 58
+					},
+					"frame": {
+						"x": 192,
+						"y": 658,
+						"w": 24,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Tanks/barrelBlack_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 58
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 58
+					},
+					"frame": {
+						"x": 481,
+						"y": 751,
+						"w": 24,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Bullets/bulletBeigeSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 260,
+						"y": 1058,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Bullets/bulletBeige_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 282,
+						"y": 1058,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Bullets/bulletBlueSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 304,
+						"y": 1058,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Obstacles/barrelGreen_up",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 358,
+						"y": 871,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "Obstacles/sandbagBrown",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 66,
+						"h": 44
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 66,
+						"h": 44
+					},
+					"frame": {
+						"x": 408,
+						"y": 869,
+						"w": 66,
+						"h": 44
+					}
+				},
+				{
+					"filename": "Obstacles/barrelRed_side",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 44,
+						"h": 62
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 44,
+						"h": 62
+					},
+					"frame": {
+						"x": 350,
+						"y": 921,
+						"w": 44,
+						"h": 62
+					}
+				},
+				{
+					"filename": "Tanks/barrelBlue_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 58
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 58
+					},
+					"frame": {
+						"x": 337,
+						"y": 986,
+						"w": 24,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Tanks/barrelGreen_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 58
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 58
+					},
+					"frame": {
+						"x": 363,
+						"y": 985,
+						"w": 24,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Tanks/barrelRed_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 24,
+						"h": 58
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 24,
+						"h": 58
+					},
+					"frame": {
+						"x": 396,
+						"y": 921,
+						"w": 24,
+						"h": 58
+					}
+				},
+				{
+					"filename": "Obstacles/barrelGrey_up",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 422,
+						"y": 915,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "Bullets/bulletBlue_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 326,
+						"y": 1058,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Obstacles/barrelRed_up",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 422,
+						"y": 965,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "Tanks/barrelBeige",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 50
+					},
+					"frame": {
+						"x": 389,
+						"y": 985,
+						"w": 16,
+						"h": 50
+					}
+				},
+				{
+					"filename": "Bullets/bulletGreenSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 101,
+						"y": 609,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Tanks/barrelBlack",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 50
+					},
+					"frame": {
+						"x": 472,
+						"y": 915,
+						"w": 16,
+						"h": 50
+					}
+				},
+				{
+					"filename": "Tanks/barrelBlue",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 50
+					},
+					"frame": {
+						"x": 472,
+						"y": 967,
+						"w": 16,
+						"h": 50
+					}
+				},
+				{
+					"filename": "Bullets/bulletGreen_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 472,
+						"y": 823,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Tanks/barrelGreen",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 50
+					},
+					"frame": {
+						"x": 476,
+						"y": 859,
+						"w": 16,
+						"h": 50
+					}
+				},
+				{
+					"filename": "Tanks/barrelRed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 50
+					},
+					"frame": {
+						"x": 490,
+						"y": 911,
+						"w": 16,
+						"h": 50
 					}
 				},
 				{
@@ -1431,8 +1473,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1623,
-						"y": 225,
+						"x": 188,
+						"y": 970,
 						"w": 12,
 						"h": 26
 					}
@@ -1452,8 +1494,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1637,
-						"y": 225,
+						"x": 490,
+						"y": 963,
 						"w": 12,
 						"h": 26
 					}
@@ -1473,8 +1515,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1651,
-						"y": 225,
+						"x": 202,
+						"y": 970,
 						"w": 12,
 						"h": 26
 					}
@@ -1494,136 +1536,10 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1665,
-						"y": 225,
+						"x": 490,
+						"y": 991,
 						"w": 12,
 						"h": 26
-					}
-				},
-				{
-					"filename": "Obstacles/barrelGrey_side",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 44,
-						"h": 62
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 44,
-						"h": 62
-					},
-					"frame": {
-						"x": 1655,
-						"y": 81,
-						"w": 44,
-						"h": 62
-					}
-				},
-				{
-					"filename": "Obstacles/barrelRed_side",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 44,
-						"h": 62
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 44,
-						"h": 62
-					},
-					"frame": {
-						"x": 1701,
-						"y": 73,
-						"w": 44,
-						"h": 62
-					}
-				},
-				{
-					"filename": "Tanks/barrelRed_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 24,
-						"h": 58
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 24,
-						"h": 58
-					},
-					"frame": {
-						"x": 1669,
-						"y": 145,
-						"w": 24,
-						"h": 58
-					}
-				},
-				{
-					"filename": "Bullets/bulletSilverSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 1679,
-						"y": 205,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 1695,
-						"y": 145,
-						"w": 20,
-						"h": 34
-					}
-				},
-				{
-					"filename": "Bullets/bulletYellowSilver_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 1717,
-						"y": 137,
-						"w": 20,
-						"h": 34
 					}
 				},
 				{
@@ -1641,8 +1557,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1739,
-						"y": 137,
+						"x": 216,
+						"y": 970,
 						"w": 12,
 						"h": 26
 					}
@@ -1662,31 +1578,10 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1739,
-						"y": 165,
+						"x": 230,
+						"y": 970,
 						"w": 12,
 						"h": 26
-					}
-				},
-				{
-					"filename": "Bullets/bulletYellow_outline",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 20,
-						"h": 34
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 20,
-						"h": 34
-					},
-					"frame": {
-						"x": 1717,
-						"y": 173,
-						"w": 20,
-						"h": 34
 					}
 				},
 				{
@@ -1704,10 +1599,73 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1701,
-						"y": 181,
+						"x": 244,
+						"y": 970,
 						"w": 12,
 						"h": 26
+					}
+				},
+				{
+					"filename": "Bullets/bulletRedSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 348,
+						"y": 1046,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Bullets/bulletRed_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 370,
+						"y": 1045,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Bullets/bulletSilverSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 392,
+						"y": 1037,
+						"w": 20,
+						"h": 34
 					}
 				},
 				{
@@ -1725,8 +1683,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1739,
-						"y": 193,
+						"x": 407,
+						"y": 981,
 						"w": 12,
 						"h": 26
 					}
@@ -1746,10 +1704,52 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1701,
-						"y": 221,
+						"x": 407,
+						"y": 1009,
 						"w": 12,
 						"h": 26
+					}
+				},
+				{
+					"filename": "Bullets/bulletSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 414,
+						"y": 1037,
+						"w": 20,
+						"h": 34
+					}
+				},
+				{
+					"filename": "Bullets/bulletYellowSilver_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 436,
+						"y": 1015,
+						"w": 20,
+						"h": 34
 					}
 				},
 				{
@@ -1767,10 +1767,31 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1715,
-						"y": 221,
+						"x": 458,
+						"y": 1015,
 						"w": 12,
 						"h": 26
+					}
+				},
+				{
+					"filename": "Bullets/bulletYellow_outline",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 34
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 34
+					},
+					"frame": {
+						"x": 472,
+						"y": 1019,
+						"w": 20,
+						"h": 34
 					}
 				},
 				{
@@ -1788,8 +1809,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1729,
-						"y": 221,
+						"x": 494,
+						"y": 1019,
 						"w": 12,
 						"h": 26
 					}
@@ -1809,8 +1830,8 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 1743,
-						"y": 221,
+						"x": 436,
+						"y": 1051,
 						"w": 12,
 						"h": 26
 					}
@@ -1821,6 +1842,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:d0486cdc7528c794cc5ed615653d193c:68d38f751efe28377be7d91e4a779476:00295b9a2dc3b97b1cd795e7b6bfbba8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:2e84eda7de75ab1aacd7a2896f18331e:58bb42b07979078f9e15054f08cbe441:00295b9a2dc3b97b1cd795e7b6bfbba8$"
 	}
 }
