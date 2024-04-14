@@ -4,6 +4,7 @@ import GameScene from 'scenes/GameScene';
 export default class Stat {
 
     public readonly value$: Subject<number>;
+    public readonly percentValue$: Subject<number>;
 
     constructor (
         private readonly scene: GameScene,
@@ -13,7 +14,12 @@ export default class Stat {
         private readonly regenRate: number = 0,
     ) {
         this.value$ = new Subject<number>();
+        this.percentValue$ = new Subject<number>();
         this.value$.next(this.value);
+
+        this.value$.subscribe(() => {
+            this.percentValue$.next(this.getPercents());
+        });
 
         if (this.autoRegen) {
             this.scene.time.addEvent({
@@ -59,5 +65,9 @@ export default class Stat {
     public burn (amount: number): void {
         this.value -= amount;
         this.value$.next(this.value);
+    }
+
+    public getPercents (): number {
+        return (this.value / this.maxValue) * 100;
     }
 }

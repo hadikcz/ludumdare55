@@ -2,6 +2,7 @@ import SafeHouse from 'core/SafeHouse';
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
+import CameraStaticFxEnergyManager from 'effects/CameraStaticFxEnergyManager';
 import EffectManager from 'effects/EffectManager';
 import Player from 'entities/player/Player';
 import $ from 'jquery';
@@ -24,6 +25,7 @@ export default class GameScene extends Phaser.Scene {
     public player!: Player;
     private tunnelLayer!: TunnelLayer;
     public safeHouse!: SafeHouse;
+    private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -68,8 +70,10 @@ export default class GameScene extends Phaser.Scene {
         );
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.1);
+        this.cameraStaticFxEnergyManager = new CameraStaticFxEnergyManager(this);
 
         this.ui = new UI(this);
+        // });
     }
 
     update (time, delta): void {

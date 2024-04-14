@@ -1,13 +1,14 @@
 import 'phaser';
 
 import GameConfig from 'config/GameConfig';
+import TvStaticFx from 'effects/TvStaticFx.js';
 import BootScene from 'scenes/BootScene';
 import GameScene from 'scenes/GameScene';
 import Stats from 'stats.js';
 
 declare let __DEV__: any;
 const config = {
-    type: Phaser.AUTO,
+    type: Phaser.WEBGL,
     pixelArt: false,
     roundPixels: false,
     autoRound: false,
@@ -37,7 +38,8 @@ const config = {
     scene: [
         BootScene,
         GameScene
-    ]
+    ],
+    pipeline: { TvStaticFx }
 };
 // @ts-ignore
 const game = new Phaser.Game(config);
