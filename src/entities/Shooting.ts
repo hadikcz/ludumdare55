@@ -23,7 +23,8 @@ export default class Shooting {
         x: number,
         y: number,
         angle: number,
-        initSpeed: number = 0
+        initSpeed: number = 0,
+        bulletDamage: number = 1
     ): void {
         if (!this.canShoot()) {
             return;
@@ -36,11 +37,14 @@ export default class Shooting {
             angle,
             initSpeed,
             this.isPlayerOwned,
-            this.tunnelLayer
+            this.tunnelLayer,
+            bulletDamage
         );
         this.worldEnv.bullets.add(bullet);
 
-        this.scene.events.emit(Events.PLAYER_SHOOT);
+        if (this.isPlayerOwned) {
+            this.scene.events.emit(Events.PLAYER_SHOOT);
+        }
     }
 
     private canShoot (): boolean {

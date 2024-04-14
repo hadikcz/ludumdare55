@@ -4,7 +4,7 @@ import GameScene from 'scenes/GameScene';
 
 export default class SpawnerManager {
 
-    private readonly group: Phaser.GameObjects.Group;
+    public readonly group: Phaser.GameObjects.Group;
 
     constructor (
       private readonly scene: GameScene,
@@ -18,7 +18,7 @@ export default class SpawnerManager {
         const x = this.player.x;
         const y = this.player.y;
 
-        this.spawn(x + 500, y);
+        this.spawn(x + 250, y);
     }
 
     private spawn (x, y): void {

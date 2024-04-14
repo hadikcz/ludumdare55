@@ -1,4 +1,5 @@
 import Container = Phaser.GameObjects.Container;
+import Spawner from 'core/spawners/Spawner';
 import TunnelLayer, { CircleSize } from 'core/TunnelLayer';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
@@ -8,13 +9,14 @@ export default class Bullet extends Container {
     private static readonly SPEED_LIMIT: number = 150;
 
     constructor (
-        scene: GameScene,
+        public scene: GameScene,
         x: number,
         y: number,
         angle: number,
         initSpeed: number = 0,
         private readonly isPlayerOwned: boolean = false,
-        private readonly tunnelLayer: TunnelLayer
+        private readonly tunnelLayer: TunnelLayer,
+        private readonly bulletDamage: number = 1
     ) {
         super(scene, x, y, []);
 
@@ -36,6 +38,15 @@ export default class Bullet extends Container {
         body.setVelocityY(speed * Math.sin(angle));
 
         this.rotation = angle + Math.PI / 2;
+
+        if (this.isPlayerOwned) {
+            this.scene.physics.add.overlap(this, this.scene.spawnerManager.group, (object1, object2) => {
+                const spawner = object2 as Spawner;
+                spawner.applyDamage(bulletDamage);
+
+                this.destroy();
+            });
+        }
     }
 
     preUpdate (time: number, delta: number): void {

@@ -27,7 +27,7 @@ export default class GameScene extends Phaser.Scene {
     public tunnelLayer!: TunnelLayer;
     public safeHouse!: SafeHouse;
     private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
-    private spawnerManager!: SpawnerManager;
+    public spawnerManager!: SpawnerManager;
 
     constructor () {
         super({ key: 'GameScene' });

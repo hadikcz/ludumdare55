@@ -35,7 +35,8 @@ export default class Player extends Phaser.GameObjects.Container {
         this.playerShooting = new Shooting(
             scene,
             this.worldEnv,
-            this.tunnelLayer
+            this.tunnelLayer,
+            true
         );
 
         this.playerStats = new PlayerStats(scene);
@@ -143,7 +144,8 @@ export default class Player extends Phaser.GameObjects.Container {
                 this.x,
                 this.y,
                 shootRotation,
-                (Math.abs(body.velocity.x) + Math.abs(body.velocity.x)) / 2
+                (Math.abs(body.velocity.x) + Math.abs(body.velocity.x)) / 2,
+                10
             );
         }
 

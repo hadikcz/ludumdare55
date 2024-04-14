@@ -9,7 +9,7 @@ export default class Stat {
     constructor (
         private readonly scene: GameScene,
         private value: number,
-        private maxValue: number,
+        private maxValue: number = value,
         private readonly autoRegen: boolean = false,
         private readonly regenRate: number = 0,
     ) {
