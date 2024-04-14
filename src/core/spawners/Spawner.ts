@@ -2,6 +2,7 @@ import Bullet from 'entities/Bullet';
 import Enemy from 'entities/enemies/Enemy';
 import Player from 'entities/player/Player';
 import Stat from 'entities/playerStats/Stat';
+import UpgradeItem, { UpgradeItemEnum } from 'entities/UpgradeItem';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
@@ -22,8 +23,9 @@ export default class Spawner extends Phaser.GameObjects.Container {
         x: number,
         y: number,
         private readonly player: Player,
+        private readonly itemDrop: UpgradeItemEnum,
         private readonly maxEnemies: number = 1,
-        private readonly initHp = 100
+        private readonly initHp = 100,
     ) {
         super(scene, x, y, []);
 
@@ -143,10 +145,17 @@ export default class Spawner extends Phaser.GameObjects.Container {
             alpha: 0,
             duration: 3000,
             onComplete: () => {
+                this.spawnUpgradeItem();
+
                 this.timer.destroy();
                 this.destroy();
             }
         });
+    }
+
+    private spawnUpgradeItem (): void {
+        const item = new UpgradeItem(this.scene, this.x, this.y, this.itemDrop);
+        this.scene.upgradeItemsGroup.add(item);
     }
 
 }

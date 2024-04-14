@@ -1,5 +1,7 @@
 import Spawner from 'core/spawners/Spawner';
 import Player from 'entities/player/Player';
+import { UpgradeItemEnum } from 'entities/UpgradeItem';
+import ArrayHelpers from 'helpers/ArrayHelpers';
 import GameScene from 'scenes/GameScene';
 
 export default class SpawnerManager {
@@ -24,11 +26,15 @@ export default class SpawnerManager {
     }
 
     private spawn (x, y): void {
+        // random from UpgradeItemEnum
+        const item = ArrayHelpers.randomEnum<UpgradeItemEnum>(UpgradeItemEnum);
+
         const spawner = new Spawner(
             this.scene,
             x,
             y,
-            this.player
+            this.player,
+            item
         );
         this.spawners.add(spawner);
 

@@ -4,6 +4,7 @@ import WorldEnv from 'core/WorldEnv';
 import Bullet from 'entities/Bullet';
 import PlayerStats from 'entities/playerStats/PlayerStats';
 import Shooting from 'entities/Shooting';
+import UpgradeItem from 'entities/UpgradeItem';
 import { Depths } from 'enums/Depths';
 import Phaser from 'phaser';
 import GameScene from 'scenes/GameScene';
@@ -77,6 +78,7 @@ export default class Player extends Phaser.GameObjects.Container {
         const body: Phaser.Physics.Arcade.Body = this.body as Phaser.Physics.Arcade.Body;
         body.setCircle(8, 0, 0);
 
+        this.scene.physics.add.overlap(this, this.scene.upgradeItemsGroup, (player, item) => this.onPickedUpgradeItem(item));
     }
 
     preUpdate (time: number, delta: number): void {
@@ -229,5 +231,12 @@ export default class Player extends Phaser.GameObjects.Container {
                 this.isDying = false;
             }
         });
+    }
+
+    private onPickedUpgradeItem (item: UpgradeItem): void {
+        const type = item.getType();
+        console.log(type);
+        item.destroy(true);
+
     }
 }

@@ -28,6 +28,7 @@ export default class GameScene extends Phaser.Scene {
     public safeHouse!: SafeHouse;
     private cameraStaticFxEnergyManager!: CameraStaticFxEnergyManager;
     public spawnerManager!: SpawnerManager;
+    public upgradeItemsGroup!: Phaser.Physics.Arcade.Group;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -44,6 +45,8 @@ export default class GameScene extends Phaser.Scene {
         this.initDebugUI();
         this.input.setTopOnly(true);
 
+        this.upgradeItemsGroup = this.physics.add.group();
+
         this.worldEnv = new WorldEnv(this);
         this.tunnelLayer = new TunnelLayer(
             this,
@@ -57,9 +60,6 @@ export default class GameScene extends Phaser.Scene {
             this.physics.world.bounds.centerY
         );
 
-        this.cameras.main.setZoom(1);
-        this.cameras.main.setBackgroundColor('#00');
-
         this.effectManager = new EffectManager(this);
 
         this.player = new Player(
@@ -71,8 +71,7 @@ export default class GameScene extends Phaser.Scene {
             this.safeHouse
         );
 
-        this.cameras.main.startFollow(this.player, false, 0.1, 0.1);
-        this.cameraStaticFxEnergyManager = new CameraStaticFxEnergyManager(this);
+        this.initCamera();
         this.spawnerManager = new SpawnerManager(this, this.player);
 
         this.ui = new UI(this);
@@ -118,5 +117,13 @@ export default class GameScene extends Phaser.Scene {
         };
 
         this.controls = new Phaser.Cameras.Controls.SmoothedKeyControl(controlConfig);
+    }
+
+    private initCamera (): void {
+        this.cameras.main.setZoom(1);
+        this.cameras.main.setBackgroundColor('#00');
+        this.cameras.main.startFollow(this.player, false, 0.1, 0.1);
+
+        this.cameraStaticFxEnergyManager = new CameraStaticFxEnergyManager(this);
     }
 }

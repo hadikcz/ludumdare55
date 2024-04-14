@@ -2,6 +2,7 @@ export enum Depths {
     POND_WATER,
     BG_TEXTURE,
     TUNNEL,
+    UPGRADE_ITEM,
     PLAYER,
     ROCKS,
     ENEMY,

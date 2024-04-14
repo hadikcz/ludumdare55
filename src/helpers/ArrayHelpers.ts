@@ -159,4 +159,10 @@ export default class ArrayHelpers {
 
         return highestItem;
     }
+
+    static randomEnum<T> (anEnum): T {
+        const values = Object.keys(anEnum);
+        const enumKey = values[Math.floor(Math.random() * values.length)];
+        return anEnum[enumKey];
+    }
 }
