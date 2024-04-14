@@ -18,7 +18,8 @@ export default class PlayerShooting {
     shoot (
         x: number,
         y: number,
-        angle: number
+        angle: number,
+        initSpeed: number = 0
     ): void {
         if (!this.canShoot()) {
             return;
@@ -28,7 +29,8 @@ export default class PlayerShooting {
             this.scene,
             x,
             y,
-            angle
+            angle,
+            initSpeed
         );
         this.worldEnv.bullets.add(bullet);
     }

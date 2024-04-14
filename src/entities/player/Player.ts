@@ -108,7 +108,12 @@ export default class Player extends Phaser.GameObjects.Container {
         }
 
         if (pointer.isDown) {
-            this.playerShooting.shoot(this.x, this.y, this.rotation);
+            this.playerShooting.shoot(
+                this.x,
+                this.y,
+                this.rotation,
+                (Math.abs(body.velocity.x) + Math.abs(body.velocity.x)) / 2
+            );
         }
 
         this.rotation = angle;

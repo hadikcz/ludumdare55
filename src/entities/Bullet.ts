@@ -4,11 +4,14 @@ import GameScene from 'scenes/GameScene';
 
 export default class Bullet extends Container {
 
+    private static readonly SPEED_LIMIT: number = 150;
+
     constructor (
         scene: GameScene,
         x: number,
         y: number,
         angle: number,
+        initSpeed: number = 0,
         private readonly isPlayerOwned: boolean = false
     ) {
         super(scene, x, y, []);
@@ -16,13 +19,20 @@ export default class Bullet extends Container {
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
 
-        const texture = this.scene.add.image(0, 0, 'assets', 'Bullets/bulletGreen');
+        const texture = this.scene.add.image(0, 0, 'assets', 'Bullets/bulletRed');
         this.add(texture);
 
         this.setDepth(Depths.BULLET);
 
+        this.setScale(.5);
+
         // @ts-ignore
         const body: Phaser.Physics.Arcade.Body = this.body;
-        body.setVelocityX(50 * Math.cos(angle));
+
+        const speed = Bullet.SPEED_LIMIT + initSpeed;
+        body.setVelocityX(speed * Math.cos(angle));
+        body.setVelocityY(speed * Math.sin(angle));
+
+        this.rotation = angle + Math.PI / 2;
     }
 }
