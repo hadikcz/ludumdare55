@@ -9,9 +9,11 @@ export default class TunnelLayer {
     private circle6: Phaser.GameObjects.Graphics;
 
     constructor (
-        private readonly scene: GameScene
+        private readonly scene: GameScene,
+        private readonly width: number,
+        private readonly height: number
     ) {
-        this.rt = this.scene.add.renderTexture(0, 0, 1000, 1000)
+        this.rt = this.scene.add.renderTexture(0, 0, width, height)
             .setOrigin(0, 0);
 
         this.rt.setDepth(Depths.TUNNEL);
@@ -40,6 +42,26 @@ export default class TunnelLayer {
             circle = this.circle6;
         }
         this.rt.draw(circle, x, y);
+    }
+
+    addRect (x: number, y: number, width: number, height: number): void {
+        this.rt.fill(
+            0x000000,
+            1,
+            x,
+            y,
+            width,
+            height
+        );
+
+        for (let i = x; i < x + width; i++) {
+            for (let j = y; j < y + height; j++) {
+                if (this.tunnels[i] === undefined) {
+                    this.tunnels[i] = [];
+                }
+                this.tunnels[i][j] = true;
+            }
+        }
     }
 
     didItCollideWithDirt (x: number, y: number): boolean {

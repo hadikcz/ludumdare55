@@ -1,3 +1,4 @@
+import SafeHouse from 'core/SafeHouse';
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
@@ -22,6 +23,7 @@ export default class GameScene extends Phaser.Scene {
     public xPos$!: Subject<number>;
     public player!: Player;
     private tunnelLayer!: TunnelLayer;
+    public safeHouse!: SafeHouse;
 
     constructor () {
         super({ key: 'GameScene' });
@@ -39,8 +41,17 @@ export default class GameScene extends Phaser.Scene {
         this.input.setTopOnly(true);
 
         this.worldEnv = new WorldEnv(this);
-
-        this.tunnelLayer = new TunnelLayer(this);
+        this.tunnelLayer = new TunnelLayer(
+            this,
+            this.physics.world.bounds.width,
+            this.physics.world.bounds.height
+        );
+        this.safeHouse = new SafeHouse(
+            this,
+            this.tunnelLayer,
+            this.physics.world.bounds.centerX,
+            this.physics.world.bounds.centerY
+        );
 
         this.cameras.main.setZoom(1);
         this.cameras.main.setBackgroundColor('#00');
@@ -49,10 +60,11 @@ export default class GameScene extends Phaser.Scene {
 
         this.player = new Player(
             this,
-            150,
-            150,
+            this.physics.world.bounds.centerX,
+            this.physics.world.bounds.centerY,
             this.tunnelLayer,
-            this.worldEnv
+            this.worldEnv,
+            this.safeHouse
         );
 
         this.cameras.main.startFollow(this.player, false, 0.1, 0.1);

@@ -1,3 +1,4 @@
+import SafeHouse from 'core/SafeHouse';
 import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import PlayerShooting from 'entities/player/PlayerShooting';
@@ -23,7 +24,8 @@ export default class Player extends Phaser.GameObjects.Container {
         x: number,
         y: number,
         private readonly tunnelLayer: TunnelLayer,
-        private readonly worldEnv: WorldEnv
+        private readonly worldEnv: WorldEnv,
+        private readonly safeHouse: SafeHouse
     ) {
         super(scene, x, y, []);
         this.scene.add.existing(this);
@@ -70,6 +72,8 @@ export default class Player extends Phaser.GameObjects.Container {
     preUpdate (time: number, delta: number): void {
         const isMoving = this.isMoving();
         this.playerStats.setPlayerMovement(isMoving);
+        const isInsideSafehouse = this.safeHouse.isInSafeHouse(this.x, this.y);
+        this.playerStats.setPlayerInsideSafehouse(isInsideSafehouse);
 
         if (!this.body) {
             return;

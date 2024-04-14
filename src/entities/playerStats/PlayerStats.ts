@@ -40,10 +40,9 @@ export default class PlayerStats {
     }
 
     private update (): void {
-        const insideSafehouse = false;
         const regenRate = 10;
 
-        if (insideSafehouse) {
+        if (this.playerInsideSafehouse) {
             this.energy.regen(regenRate);
             this.shields.regen(regenRate);
         } else {

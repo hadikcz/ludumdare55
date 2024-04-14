@@ -28,6 +28,9 @@ export default class Stat {
     public regen (value: number = 0): void {
         if (value && this.value < this.maxValue) {
             this.value += value;
+            if (this.value > this.maxValue) {
+                this.value = this.maxValue;
+            }
 
             this.value$.next(this.value);
 
@@ -36,6 +39,10 @@ export default class Stat {
 
         if (this.value < this.maxValue) {
             this.value += this.regenRate;
+
+            if (this.value > this.maxValue) {
+                this.value = this.maxValue;
+            }
 
             this.value$.next(this.value);
         }
