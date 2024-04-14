@@ -1,14 +1,12 @@
 import PortalExitSpawner from 'core/PortalExitSpawner';
 import SafeHouse from 'core/SafeHouse';
 import SummoningRockManager from 'core/spawners/SummoningRockManager';
-import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
 import TunnelLayer from 'core/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import dat, { GUI } from 'dat.gui';
 import CameraStaticFxEnergyManager from 'effects/CameraStaticFxEnergyManager';
 import EffectManager from 'effects/EffectManager';
 import Player from 'entities/player/Player';
-import UpgradeItem, { UpgradeItemEnum } from 'entities/UpgradeItem';
 import $ from 'jquery';
 import Phaser from 'phaser';
 import { Subject } from 'rxjs';
@@ -47,7 +45,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.xPos$ = new Subject<number>();
 
-        this.initDebugUI();
+        // this.initDebugUI();
         this.input.setTopOnly(true);
 
         this.upgradeItemsGroup = this.physics.add.group();
@@ -83,15 +81,15 @@ export default class GameScene extends Phaser.Scene {
         this.spawnerManager = new SummoningRockManager(this, this.player);
 
         this.ui = new UI(this);
-        const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON, SpawnerLevel.FIRST);
-        this.upgradeItemsGroup.add(item);
+        // const item = new UpgradeItem(this, this.player.x + 100, this.player.y, UpgradeItemEnum.CANNON, SpawnerLevel.FIRST);
+        // this.upgradeItemsGroup.add(item);
 
-        this.startCameraControls();
+        // this.startCameraControls();
     }
 
     update (time, delta): void {
         this.xPos$.next(this.player.x);
-        this.controls.update(delta);
+        // this.controls.update(delta);
         this.portalExitSpawner.preUpdate();
     }
 

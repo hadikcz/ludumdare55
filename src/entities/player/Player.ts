@@ -49,14 +49,15 @@ export default class Player extends Phaser.GameObjects.Container {
 
         this.playerStats = new PlayerStats(scene);
 
-        const scaleOfSprite = .3;
-        this.sprite = this.scene.add.sprite(0, 0, 'assets', 'Tanks/tankGreen')
+        // const scaleOfSprite = .3;
+        const scaleOfSprite = 0.4;
+        this.sprite = this.scene.add.sprite(0, 0, 'assets', 'assets/tank')
             .setAngle(90)
             .setScale(scaleOfSprite);
 
         this.add(this.sprite);
 
-        this.barel = this.scene.add.sprite(0, 0, 'assets', 'Tanks/barrelGreen')
+        this.barel = this.scene.add.sprite(0, 0, 'assets', 'assets/barel')
             .setAngle(90)
             .setOrigin(0.5 , 1)
             .setScale(scaleOfSprite);

@@ -23,9 +23,22 @@ export default class WorldEnv {
 
         this.generateTileBackgroundTexture();
         this.generateBorderTexture();
-        this.generateRandomRocks();
+        this.generateBase();
+        // this.generateRandomRocks();
 
         this.scene.physics.collide(this.rocks, this.scene.player);
+    }
+
+    private generateBase (): void {
+        this.scene.add.image(
+            this.scene.physics.world.bounds.centerX,
+            this.scene.physics.world.bounds.centerY,
+            'assets',
+            'assets/base'
+        )
+            .setOrigin(0.5)
+            .setDepth(Depths.BASE)
+            .setScale(0.3);
     }
 
     private generateTileBackgroundTexture (): void {
@@ -35,7 +48,8 @@ export default class WorldEnv {
             this.scene.physics.world.bounds.width,
             this.scene.physics.world.bounds.height,
             'assets',
-            'Environment/dirt'
+            'assets/dirt'
+            // 'Environment/dirt'
         )
             .setOrigin(0, 0)
             .setDepth(Depths.BG_TEXTURE);
@@ -49,7 +63,7 @@ export default class WorldEnv {
             this.scene.physics.world.bounds.width + 4000,
             1000,
             'assets',
-            'Environment/sand'
+            'assets/border'
         )
             .setOrigin(0, 0)
             .setDepth(Depths.BG_TEXTURE_BORDER);
@@ -61,7 +75,7 @@ export default class WorldEnv {
             this.scene.physics.world.bounds.width + 4000,
             1000,
             'assets',
-            'Environment/sand'
+            'assets/border'
         )
             .setOrigin(0, 0)
             .setDepth(Depths.BG_TEXTURE_BORDER);
@@ -73,7 +87,7 @@ export default class WorldEnv {
             2000,
             this.scene.physics.world.bounds.height + 2000,
             'assets',
-            'Environment/sand'
+            'assets/border'
         )
             .setOrigin(0, 0)
             .setDepth(Depths.BG_TEXTURE_BORDER);
@@ -85,7 +99,7 @@ export default class WorldEnv {
             2000,
             this.scene.physics.world.bounds.height + 2000,
             'assets',
-            'Environment/sand'
+            'assets/border'
         )
             .setOrigin(0, 0)
             .setDepth(Depths.BG_TEXTURE_BORDER);
@@ -99,7 +113,7 @@ export default class WorldEnv {
                 this.scene.physics.world.bounds.width * Math.random(),
                 this.scene.physics.world.bounds.height * Math.random(),
                 'assets',
-                'Smoke/smokeGrey5'
+                'assets/rock'
             )
                 .setDepth(Depths.ROCKS);
             this.scene.physics.add.existing(rock);

@@ -1,3 +1,4 @@
+import { SpawnerLevel } from 'core/spawners/SummoningSpawner';
 import Bullet from 'entities/Bullet';
 import Player from 'entities/player/Player';
 import Stat from 'entities/playerStats/Stat';
@@ -24,7 +25,8 @@ export default class Enemy extends Phaser.GameObjects.Container {
         y: number,
         private readonly player: Player,
         private readonly spawnDistance: number,
-        private readonly initHp = 20
+        private readonly initHp = 20,
+        private readonly level = SpawnerLevel.FIRST
     ) {
         super(scene, x, y, []);
 
@@ -34,21 +36,22 @@ export default class Enemy extends Phaser.GameObjects.Container {
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
 
-        this.sprite = this.scene.add.image(0, 0, 'assets', 'enemy');
-        this.sprite.setScale(.3);
+        this.sprite = this.scene.add.image(0, 0, 'assets', 'assets/enemy');
 
         this.add(this.sprite);
 
         this.setDepth(Depths.ENEMY);
 
+        let fireRate = this.generateFirerate();
         this.shooting = new Shooting(
             this.scene,
             this.scene.worldEnv,
             this.scene.tunnelLayer,
             false,
-            2
+            fireRate
         );
 
+        this.initHp = this.generateHp(this.level);
         this.hp = new Stat(this.scene, this.initHp);
 
         const textStyle = {
@@ -59,6 +62,7 @@ export default class Enemy extends Phaser.GameObjects.Container {
             align: 'center'
         };
         this.textHp = this.scene.add.text(0, 0, this.hp.getPercents().toString() + '%', textStyle);
+        this.textHp.setVisible(false);
         this.add(this.textHp);
     }
 
@@ -96,6 +100,44 @@ export default class Enemy extends Phaser.GameObjects.Container {
 
         if (this.hp.getValue() <= 0) {
             this.die();
+        }
+    }
+
+    private generateHp (level: SpawnerLevel): number {
+        let hp = 20;
+
+        switch (level) {
+            case SpawnerLevel.FIRST:
+                return hp * 1.5;
+            case SpawnerLevel.SECOND:
+                return hp * 2;
+            case SpawnerLevel.THIRD:
+                return hp * 3;
+            case SpawnerLevel.FOURTH:
+                return hp * 4;
+            case SpawnerLevel.FIFTH:
+                return hp * 7;
+            default:
+                return hp * 1;
+        }
+    }
+
+    private generateFirerate (): number {
+        let fireRate = 2;
+
+        switch (this.level) {
+            case SpawnerLevel.FIRST:
+                return fireRate;
+            case SpawnerLevel.SECOND:
+                return fireRate * 1.5;
+            case SpawnerLevel.THIRD:
+                return fireRate * 2;
+            case SpawnerLevel.FOURTH:
+                return fireRate * 3;
+            case SpawnerLevel.FIFTH:
+                return fireRate * 4;
+            default:
+                return fireRate * 1;
         }
     }
 

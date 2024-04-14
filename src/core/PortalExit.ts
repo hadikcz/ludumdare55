@@ -18,7 +18,7 @@ export default class PortalExit extends Container {
 
         const body = this.body as Phaser.Physics.Arcade.Body;
         body.setCircle(80);
-        this.sprite = this.scene.add.image(0, 0, 'assets', 'exit');
+        this.sprite = this.scene.add.image(0, 0, 'assets', 'assets/portal');
         this.add(this.sprite);
 
         this.setDepth(Depths.EXIT);

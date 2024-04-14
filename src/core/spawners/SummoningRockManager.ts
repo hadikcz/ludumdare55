@@ -16,7 +16,7 @@ export default class SummoningRockManager {
     ) {
         this.spawners = this.scene.add.group();
         this.enemies = this.scene.add.group();
-        // this.init();
+        this.init();
 
         this.spawnAll();
     }
@@ -25,7 +25,7 @@ export default class SummoningRockManager {
         const x = this.player.x;
         const y = this.player.y;
 
-        this.spawn(x + 250, y, SpawnerLevel.FIRST);
+        this.spawn(x + 650, y - 150, SpawnerLevel.FIRST);
     }
 
     private spawn (x, y, level: SpawnerLevel): void {

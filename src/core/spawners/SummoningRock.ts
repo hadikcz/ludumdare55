@@ -34,8 +34,8 @@ export default class SummoningRock extends Phaser.GameObjects.Container {
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
 
-        this.sprite = this.scene.add.image(0, 0, 'assets', 'spawner');
-        this.sprite.setScale(.3);
+        this.sprite = this.scene.add.image(0, 0, 'assets', 'assets/spawner');
+        // this.sprite.setScale(.3);
         this.add(this.sprite);
 
         this.setDepth(Depths.SPAWNER);
@@ -57,6 +57,7 @@ export default class SummoningRock extends Phaser.GameObjects.Container {
             align: 'center'
         };
         this.textHp = this.scene.add.text(0, 0, this.hp.getPercents().toString() + '%', textStyle);
+        this.textHp.setVisible(false);
         this.add(this.textHp);
     }
 

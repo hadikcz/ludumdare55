@@ -11,7 +11,7 @@ export default class UpgradeItem extends Phaser.GameObjects.Image {
       public readonly type: UpgradeItemEnum,
       private readonly level: SpawnerLevel
     ) {
-        super(scene, x, y, 'assets', type);
+        super(scene, x, y, 'assets', 'assets/' + type);
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
 

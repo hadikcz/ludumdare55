@@ -181,57 +181,34 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">placeholder_assets/Bullets/bulletBeige.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletBeigeSilver.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletBlue.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletBlueSilver.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletGreen.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletGreenSilver.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletRed.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletRedSilver.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletSilver.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletSilverSilver.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletYellow.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletYellowSilver.png</key>
+            <key type="filename">placeholder_assets/assets/barel.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>3,7,6,13</rect>
+                <rect>2,9,3,17</rect>
                 <key>scale9Paddings</key>
-                <rect>3,7,6,13</rect>
+                <rect>2,9,3,17</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Bullets/bulletBeigeSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletBeige_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletBlueSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletBlue_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletGreenSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletGreen_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletRedSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletRed_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletSilverSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletYellowSilver_outline.png</key>
-            <key type="filename">placeholder_assets/Bullets/bulletYellow_outline.png</key>
+            <key type="filename">placeholder_assets/assets/base.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>5,9,10,17</rect>
+                <rect>122,121,245,242</rect>
                 <key>scale9Paddings</key>
-                <rect>5,9,10,17</rect>
+                <rect>122,121,245,242</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Environment/dirt.png</key>
-            <key type="filename">placeholder_assets/Environment/grass.png</key>
-            <key type="filename">placeholder_assets/Environment/sand.png</key>
+            <key type="filename">placeholder_assets/assets/border.png</key>
+            <key type="filename">placeholder_assets/assets/dirt.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -244,135 +221,85 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Environment/treeLarge.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeGrey5.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeOrange5.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeWhite4.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeYellow5.png</key>
+            <key type="filename">placeholder_assets/assets/cannon.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>25,27,49,53</rect>
+                <rect>13,12,25,23</rect>
                 <key>scale9Paddings</key>
-                <rect>25,27,49,53</rect>
+                <rect>13,12,25,23</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Environment/treeSmall.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeGrey0.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeOrange0.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeWhite5.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeYellow0.png</key>
+            <key type="filename">placeholder_assets/assets/enemy.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>22,22,43,43</rect>
+                <rect>10,14,19,27</rect>
                 <key>scale9Paddings</key>
-                <rect>22,22,43,43</rect>
+                <rect>10,14,19,27</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Obstacles/barrelGreen_side.png</key>
-            <key type="filename">placeholder_assets/Obstacles/barrelGreen_side_damaged.png</key>
-            <key type="filename">placeholder_assets/Obstacles/barrelGrey_sde_rust.png</key>
-            <key type="filename">placeholder_assets/Obstacles/barrelGrey_side.png</key>
-            <key type="filename">placeholder_assets/Obstacles/barrelRed_side.png</key>
+            <key type="filename">placeholder_assets/assets/enemy_bullet.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>11,16,22,31</rect>
+                <rect>4,4,8,8</rect>
                 <key>scale9Paddings</key>
-                <rect>11,16,22,31</rect>
+                <rect>4,4,8,8</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Obstacles/barrelGreen_up.png</key>
-            <key type="filename">placeholder_assets/Obstacles/barrelGrey_up.png</key>
-            <key type="filename">placeholder_assets/Obstacles/barrelRed_up.png</key>
+            <key type="filename">placeholder_assets/assets/energy.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>12,12,24,24</rect>
+                <rect>19,26,38,51</rect>
                 <key>scale9Paddings</key>
-                <rect>12,12,24,24</rect>
+                <rect>19,26,38,51</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Obstacles/oil.png</key>
+            <key type="filename">placeholder_assets/assets/player_bullet.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>24,24,48,48</rect>
+                <rect>2,5,3,9</rect>
                 <key>scale9Paddings</key>
-                <rect>24,24,48,48</rect>
+                <rect>2,5,3,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Obstacles/sandbagBeige.png</key>
-            <key type="filename">placeholder_assets/Obstacles/sandbagBrown.png</key>
+            <key type="filename">placeholder_assets/assets/portal.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>17,11,33,22</rect>
+                <rect>53,29,105,59</rect>
                 <key>scale9Paddings</key>
-                <rect>17,11,33,22</rect>
+                <rect>53,29,105,59</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Smoke/smokeGrey1.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeOrange1.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeWhite0.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeYellow1.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>23,22,46,45</rect>
-                <key>scale9Paddings</key>
-                <rect>23,22,46,45</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/Smoke/smokeGrey2.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeOrange2.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeWhite1.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeYellow2.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>23,25,45,49</rect>
-                <key>scale9Paddings</key>
-                <rect>23,25,45,49</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/Smoke/smokeGrey3.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeOrange3.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeWhite2.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeYellow3.png</key>
+            <key type="filename">placeholder_assets/assets/rock.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -385,126 +312,42 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Smoke/smokeGrey4.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeOrange4.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeWhite3.png</key>
-            <key type="filename">placeholder_assets/Smoke/smokeYellow4.png</key>
+            <key type="filename">placeholder_assets/assets/shield.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>25,24,50,49</rect>
+                <rect>15,17,29,33</rect>
                 <key>scale9Paddings</key>
-                <rect>25,24,50,49</rect>
+                <rect>15,17,29,33</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Tanks/barrelBeige.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelBlack.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelBlue.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelGreen.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelRed.png</key>
+            <key type="filename">placeholder_assets/assets/spawner.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>4,13,8,25</rect>
+                <rect>32,27,63,53</rect>
                 <key>scale9Paddings</key>
-                <rect>4,13,8,25</rect>
+                <rect>32,27,63,53</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">placeholder_assets/Tanks/barrelBeige_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelBlack_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelBlue_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelGreen_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/barrelRed_outline.png</key>
+            <key type="filename">placeholder_assets/assets/tank.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>6,15,12,29</rect>
+                <rect>13,14,27,29</rect>
                 <key>scale9Paddings</key>
-                <rect>6,15,12,29</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/Tanks/tankBeige.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankBlack.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankBlue.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankGreen.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankRed.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>19,18,37,35</rect>
-                <key>scale9Paddings</key>
-                <rect>19,18,37,35</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/Tanks/tankBeige_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankBlack_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankBlue_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankGreen_outline.png</key>
-            <key type="filename">placeholder_assets/Tanks/tankRed_outline.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,20,41,39</rect>
-                <key>scale9Paddings</key>
-                <rect>21,20,41,39</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/Tanks/tracksLarge.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,26,41,52</rect>
-                <key>scale9Paddings</key>
-                <rect>21,26,41,52</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/Tanks/tracksSmall.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>19,26,37,52</rect>
-                <key>scale9Paddings</key>
-                <rect>19,26,37,52</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">placeholder_assets/spawner.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>82,87,163,173</rect>
-                <key>scale9Paddings</key>
-                <rect>82,87,163,173</rect>
+                <rect>13,14,27,29</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

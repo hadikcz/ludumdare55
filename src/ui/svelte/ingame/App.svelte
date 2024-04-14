@@ -36,9 +36,9 @@
 
 <main style="pointer-events: all">
 	<div class="top-bar">
-		<div style="width: 100px; height: 50px; background: red; color: white">
-			E: {Math.round(energy)}<br>
-            S: {Math.round(shields)}
+		<div style="width: 200px; height: 75px; text-align: center; background: rgba(0,0,0,0.49); color: white">
+			Energy: {Math.round(energy)}<br>
+            Shield: {Math.round(shields)}
 		</div>
 	</div>
 </main>

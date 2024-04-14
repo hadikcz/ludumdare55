@@ -23,7 +23,13 @@ export default class Bullet extends Container {
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
 
-        const texture = this.scene.add.image(0, 0, 'assets', 'Bullets/bulletRed');
+        let textureFrame;
+        if (isPlayerOwned) {
+            textureFrame = 'player_bullet';
+        } else {
+            textureFrame = 'enemy_bullet';
+        }
+        const texture = this.scene.add.image(0, 0, 'assets', 'assets/' + textureFrame);
         this.add(texture);
 
         this.setDepth(Depths.BULLET);
