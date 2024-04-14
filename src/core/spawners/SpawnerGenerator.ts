@@ -102,7 +102,26 @@ export class SpawnerGenerator {
             } while (this.isTooClose(x, y, insideMapPoints) || this.isInNoGoZone(x, y));
 
             insideMapPoints.push(new Phaser.Geom.Point(x, y));
-            spawnCallback(x, y, SpawnerLevel.FOURTH);
+            const level = this.getLevelByDistance(x, y);
+            spawnCallback(x, y, level);
         }
+    }
+
+    private getLevelByDistance (x, y): SpawnerLevel {
+        if (this.bounds.width === undefined || this.bounds.height === undefined) {
+            throw new Error('Bounds must have width and height');
+        }
+        const distance = Phaser.Math.Distance.Between(x, y, this.bounds.width / 2, this.bounds.height / 2);
+        if (distance < 2500) {
+            return SpawnerLevel.FIRST;
+        }
+        if (distance < 4500) {
+            return SpawnerLevel.SECOND;
+        }
+        if (distance < 6500) {
+            return SpawnerLevel.THIRD;
+        }
+        return SpawnerLevel.FOURTH;
+
     }
 }

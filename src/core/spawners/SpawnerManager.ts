@@ -48,75 +48,18 @@ export default class SpawnerManager {
     private spawnAll (): void {
         const generator = new SpawnerGenerator(
             300,
-            200,
+            350,
             600,
             this.scene.physics.world.bounds
         );
 
         const spawnCallback = (x: number, y: number, level: SpawnerLevel) => {
             this.spawn(x, y, level);
-            console.log(`Spawned object at (${x}, ${y}) with level ${level}`);
+            console.log(`Spawned object at (${x}, ${y}) with level ${level} and distance to center ${Phaser.Math.Distance.Between(x, y, this.player.x, this.player.y)}`);
         };
 
-        // Call spawnAroundBorder method
         generator.spawnAroundBorder(30, SpawnerLevel.FOURTH, spawnCallback);
 
-        // Call spawnInsideMap method
         generator.spawnInsideMap(35, spawnCallback);
-
-        // const count = 35;
-        // for (let i = 0; i < count; i++) {
-        //     const x = Phaser.Math.Between(0, this.scene.physics.world.bounds.width);
-        //     const y = Phaser.Math.Between(0, this.scene.physics.world.bounds.height);
-        //     const level = this.getLevelByDistance(x, y);
-        //
-        //     this.spawn(x, y, level);
-        // }
-
-        // this.spawnBorder();
-        // // spawn around border of map 20 of them, and padding like 300 from border
-        // const spawnBorder = 30;
-        // const padding = 300;
-        // const bounds = this.scene.physics.world.bounds;
-        // const width = bounds.width;
-        // const height = bounds.height;
-        //
-        // // Top and bottom edges
-        // for (let i = 0; i < spawnBorder / 2; i++) {
-        //     const x = Phaser.Math.Between(padding, width - padding);
-        //     const yTop = padding;
-        //     const yBottom = height - padding;
-        //
-        //     this.spawn(x, yTop, this.getLevelByDistance(x, yTop));
-        //     this.spawn(x, yBottom, this.getLevelByDistance(x, yBottom));
-        // }
-        //
-        // // Left and right edges (excluding corners to avoid duplicates)
-        // for (let i = 0; i < spawnBorder / 2; i++) {
-        //     const y = Phaser.Math.Between(padding, height - padding);
-        //     const xLeft = padding;
-        //     const xRight = width - padding;
-        //
-        //     this.spawn(xLeft, y, this.getLevelByDistance(xLeft, y));
-        //     this.spawn(xRight, y, this.getLevelByDistance(xRight, y));
-        // }
-
-    }
-
-
-
-    private getLevelByDistance (x, y): SpawnerLevel {
-        const distance = Phaser.Math.Distance.Between(x, y, this.player.x, this.player.y);
-        if (distance < 2500) {
-            return SpawnerLevel.FIRST;
-        }
-        if (distance < 4500) {
-            return SpawnerLevel.SECOND;
-        }
-        if (distance < 6500) {
-            return SpawnerLevel.THIRD;
-        }
-        return SpawnerLevel.FOURTH;
-
     }
 }
