@@ -1,4 +1,5 @@
 import PortalExit from 'core/PortalExit';
+import { Depths } from 'enums/Depths';
 import { Events } from 'enums/Events';
 import GameScene from 'scenes/GameScene';
 
@@ -6,11 +7,25 @@ export default class PortalExitSpawner {
 
     public exit!: PortalExit;
     public won = false;
+    private winText: any;
 
     constructor (
       public scene: GameScene,
     ) {
         this.spawn();
+
+        // winTet center in the screen
+        const textStyle = {
+            fontSize: '64px',
+            fill: '#fff',
+            stroke: '#000000',
+            strokeThickness: 2,
+            align: 'center'
+        };
+        this.winText = this.scene.add.text(1280 / 2, 720 / 2, 'You won!', textStyle).setScrollFactor(0).setDepth(Depths.UI);
+        this.winText.setOrigin(0.5);
+        this.winText.setAlpha(0);
+        this.winText.setVisible(false);
     }
 
     win (): void {
@@ -24,6 +39,12 @@ export default class PortalExitSpawner {
         const cam = this.scene.cameras.main;
         cam.pan(this.scene.physics.world.bounds.centerX, this.scene.physics.world.bounds.centerY, duration);
         cam.zoomTo(0.07, duration);
+        this.winText.setVisible(true);
+        this.scene.tweens.add({
+            targets: this.winText,
+            alpha: 1,
+            duration: 10000,
+        });
 
         this.scene.events.emit(Events.WIN);
     }

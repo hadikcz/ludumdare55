@@ -33,6 +33,7 @@ export default class GameScene extends Phaser.Scene {
     public spawnerManager!: SummoningRockManager;
     public upgradeItemsGroup!: Phaser.Physics.Arcade.Group;
     public portalExitSpawner!: PortalExitSpawner;
+    private winText!: Phaser.GameObjects.Text;
 
     constructor () {
         super({ key: 'GameScene' });
