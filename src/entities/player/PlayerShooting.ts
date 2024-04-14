@@ -1,16 +1,18 @@
+import TunnelLayer from 'core/tunnels/TunnelLayer';
 import WorldEnv from 'core/WorldEnv';
 import Bullet from 'entities/Bullet';
 import GameScene from 'scenes/GameScene';
 
 export default class PlayerShooting {
 
-    private static readonly FIRERATE_PER_SECOND: number = 2;
+    private static readonly FIRERATE_PER_SECOND: number = 4;
     private static readonly WAIT_BETWEEN_SHOOTS: number = 1000 / PlayerShooting.FIRERATE_PER_SECOND;
     private lastShootTime: number = 0;
 
     constructor (
         private readonly scene: GameScene,
-        private readonly worldEnv: WorldEnv
+        private readonly worldEnv: WorldEnv,
+        private readonly tunnelLayer: TunnelLayer
     ) {
 
     }
@@ -30,7 +32,9 @@ export default class PlayerShooting {
             x,
             y,
             angle,
-            initSpeed
+            initSpeed,
+            true,
+            this.tunnelLayer
         );
         this.worldEnv.bullets.add(bullet);
     }

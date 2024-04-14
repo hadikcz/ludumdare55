@@ -27,7 +27,11 @@ export default class Player extends Phaser.GameObjects.Container {
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
 
-        this.playerShooting = new PlayerShooting(scene, this.worldEnv);
+        this.playerShooting = new PlayerShooting(
+            scene,
+            this.worldEnv,
+            this.tunnelLayer
+        );
 
         const scaleOfSprite = .3;
         this.sprite = this.scene.add.sprite(0, 0, 'assets', 'Tanks/tankGreen')

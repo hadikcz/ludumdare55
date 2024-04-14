@@ -5,7 +5,8 @@ export default class TunnelLayer {
 
     private tunnels: boolean[][] = [];
     private rt: Phaser.GameObjects.RenderTexture;
-    private circle: Phaser.GameObjects.Graphics;
+    private circle10: Phaser.GameObjects.Graphics;
+    private circle6: Phaser.GameObjects.Graphics;
 
     constructor (
         private readonly scene: GameScene
@@ -15,13 +16,14 @@ export default class TunnelLayer {
 
         this.rt.setDepth(Depths.TUNNEL);
 
-        this.circle = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 10);
+        this.circle10 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 10);
+        this.circle6 = this.scene.make.graphics({ x: 0, y: 0 }).fillStyle(0x000000, 1).fillCircle(0, 0, 6);
         this.rt.clear();
 
         // this.initTunnels();
     }
 
-    addTunnelSection (x: number, y: number): void {
+    addTunnelSection (x: number, y: number, circleSize: CircleSize = CircleSize.TEN): void {
         x = Math.floor(x);
         y = Math.floor(y);
 
@@ -30,7 +32,18 @@ export default class TunnelLayer {
         }
 
         this.tunnels[x][y] = true;
-        this.rt.draw(this.circle, x, y);
+
+        let circle;
+        if (circleSize === CircleSize.TEN) {
+            circle = this.circle10;
+        } else {
+            circle = this.circle6;
+        }
+        this.rt.draw(circle, x, y);
+    }
+
+    didItCollideWithDirt (x: number, y: number): boolean {
+        return !this.isInTheTunnel(x, y, 0, 0, 8);
     }
 
     isInTheTunnel (x: number, y: number, angle: number = 0, distance: number = 15, circleDetectionSize: number = 8): boolean {
@@ -69,4 +82,9 @@ export default class TunnelLayer {
             }
         }
     }
+}
+
+export enum CircleSize {
+    TEN,
+    SIX
 }

@@ -1,4 +1,5 @@
 import Container = Phaser.GameObjects.Container;
+import TunnelLayer, { CircleSize } from 'core/tunnels/TunnelLayer';
 import { Depths } from 'enums/Depths';
 import GameScene from 'scenes/GameScene';
 
@@ -12,7 +13,8 @@ export default class Bullet extends Container {
         y: number,
         angle: number,
         initSpeed: number = 0,
-        private readonly isPlayerOwned: boolean = false
+        private readonly isPlayerOwned: boolean = false,
+        private readonly tunnelLayer: TunnelLayer
     ) {
         super(scene, x, y, []);
 
@@ -34,5 +36,15 @@ export default class Bullet extends Container {
         body.setVelocityY(speed * Math.sin(angle));
 
         this.rotation = angle + Math.PI / 2;
+    }
+
+    preUpdate (time: number, delta: number): void {
+        const collided = this.tunnelLayer.didItCollideWithDirt(this.x, this.y);
+        if (collided) {
+            this.tunnelLayer.addTunnelSection(this.x, this.y, CircleSize.SIX);
+            this.destroy();
+            return;
+        }
+
     }
 }
