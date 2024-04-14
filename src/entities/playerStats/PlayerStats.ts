@@ -4,9 +4,9 @@ import GameScene from 'scenes/GameScene';
 
 export default class PlayerStats {
 
-    private static readonly IDLE_ENERGY_CONSUPTION: number = 0.3;
-    private static readonly MOVEMENT_ENERGY_CONSUPTION: number = 0.5;
-    private static readonly SHOOT_ENERGY_CONSUPTION: number = 0.5;
+    private static readonly IDLE_ENERGY_CONSUPTION: number = 0.03; // 0.3 for one second, 0.03 for 100ms
+    private static readonly MOVEMENT_ENERGY_CONSUPTION: number = 0.05;
+    private static readonly SHOOT_ENERGY_CONSUPTION: number = 0.05;
 
     public readonly energy: Stat;
     public readonly shields: Stat;
@@ -20,7 +20,7 @@ export default class PlayerStats {
         this.shields = new Stat(this.scene, 100, 100, true, 1);
 
         this.scene.time.addEvent({
-            delay: 1000,
+            delay: 100,
             callback: this.update,
             callbackScope: this,
             loop: true,
@@ -40,7 +40,7 @@ export default class PlayerStats {
     }
 
     private update (): void {
-        const regenRate = 10;
+        const regenRate = 1; // 10 per second, 1 per 100ms
 
         if (this.playerInsideSafehouse) {
             this.energy.regen(regenRate);
