@@ -69,6 +69,9 @@ export default class Player extends Phaser.GameObjects.Container {
 
         this.setDepth(Depths.PLAYER);
 
+        const body: Phaser.Physics.Arcade.Body = this.body as Phaser.Physics.Arcade.Body;
+        body.setCircle(8, 0, 0);
+
     }
 
     preUpdate (time: number, delta: number): void {
@@ -89,6 +92,11 @@ export default class Player extends Phaser.GameObjects.Container {
         }
 
         this.mouseControls(body, delta);
+    }
+
+    applyDamage (damage: number): void {
+        this.playerStats.shields.burn(damage);
+        this.scene.cameras.main.flash();
     }
 
     private isMoving (): boolean {

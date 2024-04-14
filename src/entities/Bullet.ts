@@ -46,8 +46,11 @@ export default class Bullet extends Container {
 
                 this.destroy();
             });
-
-
+        } else {
+            this.scene.physics.add.overlap(this, this.scene.player, (object1, object2) => {
+                this.scene.player.applyDamage(bulletDamage);
+                this.destroy();
+            });
         }
     }
 
