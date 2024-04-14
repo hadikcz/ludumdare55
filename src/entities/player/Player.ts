@@ -87,6 +87,11 @@ export default class Player extends Phaser.GameObjects.Container {
     preUpdate (time: number, delta: number): void {
         if (this.isDying) return;
 
+
+        if (this.playerStats.shields.getValue() <= 0) {
+            this.die();
+        }
+
         const isMoving = this.isMoving();
         this.playerStats.setPlayerMovement(isMoving);
         const isInsideSafehouse = this.safeHouse.isInSafeHouse(this.x, this.y);
