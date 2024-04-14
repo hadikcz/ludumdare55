@@ -111,13 +111,13 @@ export default class Spawner extends Phaser.GameObjects.Container {
     }
 
     private die (): void {
-        const count = Phaser.Math.Between(20, 40);
+        const count = Phaser.Math.Between(10, 20);
         for (let i = 0; i < count; i++) {
             const bullet = new Bullet(
                 this.scene,
                 this.x,
                 this.y,
-                Phaser.Math.Between(0, Math.PI * 2),
+                Phaser.Math.RND.angle(),
                 10,
                 false,
                 this.scene.tunnelLayer,
@@ -129,7 +129,7 @@ export default class Spawner extends Phaser.GameObjects.Container {
         this.scene.add.tween({
             targets: this,
             alpha: 0,
-            duration: 500,
+            duration: 3000,
             onComplete: () => {
                 this.destroy();
             }
