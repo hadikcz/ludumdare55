@@ -56,16 +56,16 @@ export default class PlayerStats {
         let amount;
         switch (level) {
             case SpawnerLevel.FIRST:
-                amount = Phaser.Math.RND.integerInRange(5, 10);
+                amount = Phaser.Math.RND.integerInRange(10, 15);
                 break;
             case SpawnerLevel.SECOND:
-                amount = Phaser.Math.RND.integerInRange(7, 15);
+                amount = Phaser.Math.RND.integerInRange(15, 20);
                 break;
             case SpawnerLevel.THIRD:
-                amount = Phaser.Math.RND.integerInRange(10, 20);
+                amount = Phaser.Math.RND.integerInRange(20, 30);
                 break;
             case SpawnerLevel.FOURTH:
-                amount = Phaser.Math.RND.integerInRange(14, 24);
+                amount = Phaser.Math.RND.integerInRange(30, 40);
                 break;
             case SpawnerLevel.FIFTH:
                 amount = Phaser.Math.RND.integerInRange(15, 30);

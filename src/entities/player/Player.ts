@@ -81,8 +81,26 @@ export default class Player extends Phaser.GameObjects.Container {
         const body: Phaser.Physics.Arcade.Body = this.body as Phaser.Physics.Arcade.Body;
         body.setCircle(8, 0, 0);
 
+        body.setCollideWorldBounds(true);
+
         // @ts-ignore
         this.scene.physics.add.overlap(this, this.scene.upgradeItemsGroup, (player, item) => this.onPickedUpgradeItem(item));
+
+        this.scene.time.addEvent({
+            delay: 50,
+            loop: true,
+            callback: () => {
+                const body: Phaser.Physics.Arcade.Body = this.body as Phaser.Physics.Arcade.Body;
+                if (body.velocity.x !== 0 || body.velocity.y !== 0) {
+                    this.scene.effectManager.launchSmoke(
+                        this.x,
+                        this.y,
+                        true,
+                        false
+                    );
+                }
+            }
+        });
     }
 
     preUpdate (time: number, delta: number): void {
@@ -90,7 +108,7 @@ export default class Player extends Phaser.GameObjects.Container {
         if (this.scene.portalExitSpawner.won) return;
 
 
-        if (this.playerStats.shields.getValue() <= 0) {
+        if (this.playerStats.shields.getValue() <= 0 || this.playerStats.energy.getValue() <= 0) {
             this.die();
         }
 
@@ -118,7 +136,7 @@ export default class Player extends Phaser.GameObjects.Container {
         const isInsideSafehouse = this.safeHouse.isInSafeHouse(this.x, this.y);
         if (isInsideSafehouse) return;
         this.playerStats.shields.burn(damage);
-        this.scene.cameras.main.flash();
+        // this.scene.cameras.main.flash(0.1);
 
         if (this.playerStats.shields.getValue() <= 0) {
             this.die();
@@ -191,6 +209,10 @@ export default class Player extends Phaser.GameObjects.Container {
     }
 
     private getSpeed (): number {
+        const pointer = this.scene.input.activePointer;
+        if (pointer.isDown) {
+            return Player.SPEED;
+        }
         const isInTunnel = this.tunnelLayer.isInTheTunnel(
             this.x,
             this.y,

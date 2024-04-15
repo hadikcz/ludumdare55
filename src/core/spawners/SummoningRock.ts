@@ -59,6 +59,24 @@ export default class SummoningRock extends Phaser.GameObjects.Container {
         this.textHp = this.scene.add.text(0, 0, this.hp.getPercents().toString() + '%', textStyle);
         this.textHp.setVisible(false);
         this.add(this.textHp);
+
+        switch (rockLevel) {
+            case SpawnerLevel.FIRST:
+                this.sprite.setScale(.4);
+                break;
+            case SpawnerLevel.SECOND:
+                this.sprite.setScale(.6);
+                break;
+            case SpawnerLevel.THIRD:
+                this.sprite.setScale(.8);
+                break;
+            case SpawnerLevel.FOURTH:
+                this.sprite.setScale(1);
+                break;
+            case SpawnerLevel.FIFTH:
+                this.sprite.setScale(1.5);
+                break;
+        }
     }
 
     preUpdate (): void {
@@ -140,6 +158,8 @@ export default class SummoningRock extends Phaser.GameObjects.Container {
                 1
             );
             this.scene.worldEnv.bullets.add(bullet);
+
+            this.scene.effectManager.launchExplosion(this.x + Phaser.Math.RND.integerInRange(-25, 25), this.y + Phaser.Math.RND.integerInRange(-25, 25), 12);
         }
 
         this.textHp.setVisible(false);

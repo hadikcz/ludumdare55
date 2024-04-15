@@ -49,12 +49,14 @@ export default class Bullet extends Container {
             this.scene.physics.add.overlap(this, this.scene.spawnerManager.spawners, (object1, object2) => {
                 const spawner = object2 as SummoningRock;
                 spawner.applyDamage(bulletDamage);
+                this.scene.effectManager.launchExplosion(this.x, this.y, 12);
 
                 this.destroy();
             });
         } else {
             this.scene.physics.add.overlap(this, this.scene.player, (object1, object2) => {
                 this.scene.player.applyDamage(bulletDamage);
+                this.scene.effectManager.launchExplosion(this.x, this.y, 12);
                 this.destroy();
             });
         }
@@ -70,6 +72,8 @@ export default class Bullet extends Container {
         const collided = this.tunnelLayer.didItCollideWithDirt(this.x, this.y);
         if (collided) {
             this.tunnelLayer.addTunnelSection(this.x, this.y, CircleSize.SIX);
+
+            this.scene.effectManager.launchExplosion(this.x, this.y, 12);
             this.destroy();
             return;
         }

@@ -73,6 +73,27 @@
 					}
 				},
 				{
+					"filename": "assets/progress_bar_fill",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 56,
+						"h": 7
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 54,
+						"h": 4
+					},
+					"frame": {
+						"x": 1,
+						"y": 677,
+						"w": 54,
+						"h": 4
+					}
+				},
+				{
 					"filename": "assets/shield",
 					"rotated": false,
 					"trimmed": true,
@@ -112,6 +133,27 @@
 						"y": 466,
 						"w": 128,
 						"h": 128
+					}
+				},
+				{
+					"filename": "assets/player_bullet",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 7,
+						"h": 18
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 7,
+						"h": 18
+					},
+					"frame": {
+						"x": 81,
+						"y": 664,
+						"w": 7,
+						"h": 18
 					}
 				},
 				{
@@ -157,27 +199,6 @@
 					}
 				},
 				{
-					"filename": "assets/player_bullet",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 7,
-						"h": 18
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 7,
-						"h": 18
-					},
-					"frame": {
-						"x": 81,
-						"y": 664,
-						"w": 7,
-						"h": 18
-					}
-				},
-				{
 					"filename": "assets/enemy_bullet",
 					"rotated": false,
 					"trimmed": false,
@@ -196,6 +217,48 @@
 						"y": 664,
 						"w": 16,
 						"h": 16
+					}
+				},
+				{
+					"filename": "assets/smoke",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 108,
+						"y": 664,
+						"w": 16,
+						"h": 16
+					}
+				},
+				{
+					"filename": "assets/progress_bar_bg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 56,
+						"h": 7
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 56,
+						"h": 7
+					},
+					"frame": {
+						"x": 126,
+						"y": 664,
+						"w": 56,
+						"h": 7
 					}
 				},
 				{
@@ -309,6 +372,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:45c4decee77daaeff1c906ddf485daa7:a01da81457449f0e48cfb81cd0783a8b:00295b9a2dc3b97b1cd795e7b6bfbba8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:8f87e418ad4c4fccb33ad97d8a0b854f:e6413d15b1e1ee2fce11bcf0903040f8:00295b9a2dc3b97b1cd795e7b6bfbba8$"
 	}
 }

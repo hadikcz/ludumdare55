@@ -46,7 +46,25 @@ export default class SummoningRockManager {
         );
         this.spawners.add(spawner);
 
-        this.scene.tunnelLayer.addCircle(x, y, 160);
+        let radius = 160;
+        switch (level) {
+            case SpawnerLevel.FIRST:
+                radius = radius / 2;
+                break;
+            case SpawnerLevel.SECOND:
+                radius = radius / 1.5;
+                break;
+            case SpawnerLevel.THIRD:
+                // radius = radius;
+                break;
+            case SpawnerLevel.FOURTH:
+                radius = radius * 1.5;
+                break;
+            case SpawnerLevel.FIFTH:
+                radius = radius * 2;
+                break;
+        }
+        this.scene.tunnelLayer.addCircle(x, y, radius);
     }
 
     private spawnAll (): void {
